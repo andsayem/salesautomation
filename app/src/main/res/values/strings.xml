@@ -1,0 +1,163 @@
+<resources>
+    <!--    for test-->
+    <string name="app_name">Business Automation</string>
+    <string name="notice_footer">ধন্যবাদান্তে\nপ্রধান মানবসম্পদ কর্মকর্তা\nমানবসম্পদ বিভাগ\nসুপার ষ্টার গ্রুপ</string>
+    <string name="take_barcode_picture">Take Barcode Picture</string>
+    <string name="scan_barcode">Scan Barcode</string>
+    <string name="open_camera">OPEN CAMERA</string>
+    <string name="sms_api_key">$2y$10$5gH8PWulavwC6rCbA4X3Mu4GLy2f.eqRjFOAa0Eftd/txe1Iz2i3a174</string>
+    <string name="sms_sender_id">8809617620482</string>
+    <string name="transaction_type">T</string>
+    <string name="campaign_id">cmp-DlVuuS8nxA</string>
+
+    <!--    for uat 67-->
+    <!-- <string name="app_name">SA Test</string>-->
+    <string name="surveylink"><a href="https://ee.kobotoolbox.org/x/AwSrz0bb">https://ee.kobotoolbox.org/x/AwSrz0bb</a></string>
+    <string name="forgot_pass">"<font color='white'>Forgot Your Login details? </font><u><font color='black'>Get help signing in</font></u>."</string>
+    <string name="have_account">"<font color='gray'>If have an account? </font><u><font color='black'>Sign In</font></u>."</string>
+    <string name="terms_policy">"<font color='black'>By pressing connect or register button I accept</font><font color='red'> terms and Conditions </font><font color='black'>and</font><font color='red'>Privacy and Policy</font><font color='red'> agreements</font>"</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="splash_txt">Copyright © 2025 ..... All rights Reserved.</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="title_text">feed</string>
+    <string name="text_nonetwork">No Internet connection</string>
+    <string name="goto_setting">Setting</string>
+    <string name="gps_network_not_enabled">Your location is not enable.</string>
+    <string name="Cancel">Go Without Location</string>
+    <string name="open_location_settings">Enable</string>
+    <string name="facebook_app_id">11</string>
+    <string name="error_blank_field">Field cannot be blank</string>
+    <string name="visit_confiramtion">আপনার রিটেইলার ভিজিট কনফার্ম হয়েছে। </string>
+    <string name="privacy_text">&lt;u&gt;"Privacy Policy&lt;/u&gt;.</string>
+    <string name="fb_login_proRetocol_scheme">11</string>
+    <string name="location_text">Allow Sales automation to access this device\'s location even when the app is closed or not in use.\n Salesautomation app collecting your location for track your current location,visiting area and to enhance your sales area.</string>
+    <string name="location_text1">Salesautomation app collecting your location for track your current position,visiting area and to enhance your sales area.\nThis app collects location data to enable your location info
+    even when the app is closed or not in use.\n Sales automation app require storage permission also.</string>
+
+    <string name="base_url">https://ssforce.ssgbd.com/</string>
+
+<!--<string name="base_url">https://ssforcenewdev.ssgbd.com/</string>-->
+<!--<string name="base_url">https://trainingforce.ssgbd.com/</string>-->
+
+    <!-- HRIS api -->
+<!--<string name="base_url_hris">http://api.hrisdev.ssgbd.com/</string>-->
+<!--    <string name="base_url_hris">https://hrisdevv2.ssgbd.com/backend/public/api/</string>-->
+    <string name="base_url_hris">https://hris.ssgbd.com/backend/public/api/</string>
+
+    <string name="sync_product_url">api/apps/sync-products</string>
+    <string name="sync_product_category_url">api/apps/sync-categories</string>
+    <string name="sync_retailer_url">api/apps/sync-retailers</string>
+    <string name="utility_list_url">api/apps/utility-list</string>
+
+    <!--<string name="map_api_key">AIzaSyCFaOpjC_b96dxE4tLjblHHpUzJtrX_6AM</string>-->
+    <string name="map_api_key">AIzaSyC2MbMsESvqgt8wgMKhy2mxW5OiCM-J2kA</string>
+    <string name="str_checkdevice">check equipment</string>
+    <string name="str_open">turn on Bluetooth</string>
+    <string name="str_close">turn off Bluetooth</string>
+    <string name="str_matched">View paired devices</string>
+    <string name="str_openimg">open picture </string>
+    <string name="str_create2d">qrcode</string>
+    <string name="str_createbar">barcode</string>
+    <string name="str_order">FontSize</string>
+    <string name="str_scan">scanning equipment</string>
+    <string name="str_printword">Print </string>
+    <string name="str_printword_desc">Print GBK, Unicode text encoding</string>
+    <string name="str_printimg">print pictures</string>
+    <string name="str_printimg_desc">Select the picture to print</string>
+    <string name="str_printbarcode">one-dimensional code printing </string>
+    <string name="str_printbarcode_desc">dynamically create a dimensional code printing </string>
+    <string name="str_printqrcode">two-dimensional code printing </string>
+    <string name="str_printqrcode_desc">dynamically create 2D code printing </string>
+    <string name="str_printcmd">send printer instructions </string>
+    <string name="str_printcmd_desc">send a print instruction set other instructions </string>
+    <string name="str_disconnect">disconnect</string>
+    <string name="str_device">device</string>
+    <string name="str_scaning">scanning</string>
+    <string name="str_unconnected">not connected!</string>
+    <string name="str_succonnect">connected successfully!</string>
+    <string name="str_faileconnect">connection failed!</string>
+    <string name="str_lose">connection lost!</string>
+    <string name="str_cannotcreate2d">create 2D failed!</string>
+    <string name="str_cannotcreatebar">failed to create a one-dimensional code </string>
+    <string name="str_devecehasblue">Bluetooth equipment! </string>
+    <string name="str_nomatched">no matching equipment!</string>
+    <string name="str_connected">connected </string>
+    <string name="str_disconnected">not connected to </string>
+    <string name="str_connecting">connecting to </string>
+    <string name="str_hasnodevice">no Bluetooth devices! </string>
+    <string name="str_scanover">scanning is finished!</string>
+    <string name="chose">select</string>
+    <string name="mode_bt">SSG POS Printer</string>
+    <string name="mode_wifi">Wifi Printer</string>
+    <string name="mode_usb">USB Printer</string>
+    <string name="str_printunicode">Print Unicode</string>
+    <string name="str_printtext">str_printtext</string>
+    <string name="str_exit">Sure exit and close the equipment?</string>
+    <string name="str_autotime">Interval(ms):</string>
+    <string name="str_autoprint">Auto Print</string>
+    <string name="str_printer_state">STATE</string>
+    <string name="str_printer_printing">Printing</string>
+    <string name="str_printer_lowpower">Low power</string>
+    <string name="str_printer_nopaper">No paper</string>
+    <string name="str_printer_bufferfull">Buffer full</string>
+    <string name="str_printer_buffernull">Buffer null</string>
+    <string name="str_printer_hightemperature">High temperature</string>
+    <string name="product_loding">আপনার প্রোডাক্ট লোড হচ্ছে দয়া করে অপেক্ষা করুন। </string>
+    <string name="product_group_loding">আপনার প্রোডাক্ট গ্রুপ লোড হচ্ছে দয়া করে অপেক্ষা করুন। </string>
+    <string name="retailer_loding">আপনার রিটেইলার লোড হচ্ছে দয়া করে অপেক্ষা করুন। </string>
+    <string name="attendance_loding">আপনার তথ্য লোড হচ্ছে দয়া করে অপেক্ষা করুন। </string>
+    <string name="order_save_alert">আপনি কি অর্ডারটি কনফার্ম করতে চান? </string>
+    <string name="order_save_alert_">দয়া করে প্রথমে অর্ডারটি সেভ করুন। </string>
+    <string name="yes">হ্যা  </string>
+    <string name="no">না </string>
+    <string name="product_choicealert">দয়া করে প্রথমে প্রোডাক্ট সিলেক্ট করুন। </string>
+    <string name="delete_alert">আপনি কি ডিলিট করতে চান?</string>
+    <string name="process_order_alert">অর্ডার প্রসেস হচ্ছে। দয়া করে অপেক্ষা করুন।</string>
+    <string name="loading_text">আপনার তথ্য লোড হচ্ছে! একটু অপেক্ষা করুন।</string>
+
+    <string name="gretting">
+      <br>
+         Welcome to Annual Business Conference-2024 \n
+      </br>
+      <br>
+         Thanks for your Digital Registration\n
+      </br>
+
+   </string>
+
+    <string name="str_custom_instruction">Instruction</string>
+    <string name="button_send_instruction">Send</string>
+
+    <string-array name="nav_drawer_labels">
+        <item>home</item>
+        <item>friends</item>
+        <item>notifications</item>
+    </string-array>
+    <string-array name="month_names">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+    <string name="accessibility_service_description">Hello!</string>
+    <string name="title_activity_qrcode_scanner">QRCodeScannerActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="image_description">Smart Image</string>
+</resources>

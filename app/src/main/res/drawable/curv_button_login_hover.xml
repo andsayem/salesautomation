@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+
+        <shape android:shape="rectangle">
+            <!--make a gradient background-->
+
+            <!--apply a border around button-->
+            <stroke android:width="1px" android:color="@color/fb_gray" />
+             <solid android:color="@color/colorPrimaryDark"/>
+            <!-- make the button corners rounded-->
+            <corners android:radius="4dp"/>
+        </shape>
+    </item>
+
+    <item>
+        <shape>
+
+            <stroke android:width="1px"
+                android:color="@color/colorWhite" />
+            <corners android:radius="4dp" />
+            <solid android:color="@color/colorPrimary"/>
+            <padding android:bottom="10dp"
+                android:left="10dp"
+                android:right="10dp"
+                android:top="10dp" />
+        </shape>
+    </item>
+</selector>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+android:id="@+id/row_linlay_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+
+        android:orientation="horizontal">
+
+
+        <!--<View-->
+            <!--android:layout_width="2px"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="#000" />-->
+        <TextView
+            android:id="@+id/row_txt_skshortcode"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:padding="@dimen/margin_5dp"
+            android:layout_height="wrap_content"
+            android:text="Model" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#000" />
+        <TextView
+            android:id="@+id/row_txt_qty"
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:padding="@dimen/margin_5dp"
+            android:layout_height="wrap_content"
+            android:text="Qty" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#000" />
+        <TextView
+            android:id="@+id/row_txt_value"
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:padding="@dimen/margin_5dp"
+            android:layout_height="wrap_content"
+            android:text="Amount" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000" />
+
+
+</LinearLayout>

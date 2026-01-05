@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_margin="@dimen/margin_10dp"
+        android:visibility="visible"
+        android:padding="@dimen/margin_5dp"
+        android:textColor="@color/deep_gray"
+        android:background="@drawable/curv_background_demand"
+        android:text="Add Feedback" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_5dp"
+        android:background="@drawable/curv_background_demand"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/txt_fromdate"
+            android:layout_width="0dp"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/margin_10dp"
+            android:background="@drawable/curv_background"
+            android:textColor="#736b6b"
+            android:text="From Date"
+            android:padding="@dimen/margin_5dp"
+            android:visibility="visible"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/txt_todate"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/margin_10dp"
+            android:textColor="#736b6b"
+            android:visibility="visible"
+            android:background="@drawable/curv_background"
+            android:padding="@dimen/margin_5dp"
+            android:text="To date"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_search"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/margin_10dp"
+            android:textColor="#736b6b"
+            android:visibility="visible"
+            android:gravity="center"
+            android:background="@drawable/curv_background_demand"
+            android:padding="@dimen/margin_5dp"
+            android:text="Search"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:layout_marginRight="@dimen/margin_10dp"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/row_sl"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/margin_10dp"
+                    android:text="ID"
+                    android:textColor="@color/colorPrimary" />
+                <TextView
+                    android:id="@+id/row_date"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+
+                    android:gravity="center_vertical"
+
+                    android:padding="@dimen/margin_10dp"
+                    android:text=" Date"
+                    android:textColor="@color/colorPrimary" />
+                <TextView
+                    android:id="@+id/row_fromdate"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/margin_10dp"
+                    android:text="Replace Value"
+                    android:textColor="@color/colorPrimary" />
+
+                <TextView
+                    android:id="@+id/row_todate"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/margin_10dp"
+                    android:text="Replace Text"
+                    android:textColor="@color/colorPrimary" />
+                <TextView
+                    android:id="@+id/row_type"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:padding="@dimen/margin_10dp"
+                    android:text="Free Pending"
+
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/row_reason"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/margin_10dp"
+                    android:text="Competition Facts"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary" />
+
+                <TextView
+                    android:id="@+id/row_suggestion"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/margin_10dp"
+                    android:text="Complain Box"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimary" />
+
+
+            </LinearLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/feedback_list_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:layout_marginRight="@dimen/margin_10dp" />
+        </LinearLayout>
+    </HorizontalScrollView>
+</LinearLayout>

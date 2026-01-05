@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/dialog_title"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:id="@+id/tv_dialog_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:text="Visit"
+                android:textColor="@android:color/white"
+
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:id="@+id/rl_dialog_cross"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:clickable="true">
+
+
+                <ImageView
+                    android:id="@+id/btn_dialog_cross"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:background="@drawable/cross_hover" />
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+        <RadioGroup
+            android:id="@+id/radioGroupVisit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_10dp"
+            android:layout_below="@+id/text"
+            android:checkedButton="@+id/sound">
+
+
+            <RadioButton
+                android:id="@+id/radio_1"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="Stock not available" />
+
+            <RadioButton
+                android:id="@+id/radio_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Shop closed" />
+
+            <RadioButton
+                android:id="@+id/radio_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Insufficient funds" />
+
+            <RadioButton
+                android:id="@+id/radio_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Products available" />
+
+            <RadioButton
+                android:id="@+id/radio_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Others" />
+
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+
+
+            <EditText
+                android:id="@+id/edt_txt_visit"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+
+                android:gravity="top|left"
+                android:layout_marginBottom="@dimen/margin_10dp"
+                android:background="@drawable/curv_background"
+                android:hint="Your Search Text"
+                android:padding="@dimen/margin_10dp"
+                android:layout_margin="@dimen/margin_10dp"
+                android:textSize="18sp"
+                android:visibility="visible"></EditText>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linlay_chkdistence"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_5dp"
+            android:padding="@dimen/margin_10dp"
+            android:gravity="center"
+            android:background="@drawable/curv_background"
+
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/dis_map"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="9sp"
+
+                android:text="দূরত্ব চেক করতে এখানে ট্যাপ করুন ।"
+                android:textStyle="bold" />
+            <!--                android:text="অ্যাটেনডেন্স দিতে হলে ডিবি অথবা রিটেইলার পয়েন্ট থেকে অবশ্যই ৩০০ মিটারের মধ্যে থাকতে হবে। "-->
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <Button
+                android:id="@+id/btnDoneDialog_visit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:text="Submit"
+
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</RelativeLayout>

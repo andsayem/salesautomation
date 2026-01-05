@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_5dp"
+    android:paddingRight="@dimen/margin_5dp"
+    card_view:cardCornerRadius="4dp">
+<!--    <HorizontalScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="@dimen/margin_5dp">
+
+
+        <TextView
+            android:id="@+id/row_product_id"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:visibility="gone"
+            android:background="@drawable/curv_background"
+            android:text="id" />
+
+        <TextView
+            android:id="@+id/row_product_name"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:background="@drawable/curv_background"
+            android:text="Product " />
+
+        <TextView
+            android:id="@+id/row_product_qty"
+            android:layout_width="140dp"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:visibility="gone"
+            android:background="@drawable/curv_background"
+            android:text="100" />
+
+        <TextView
+            android:id="@+id/row_product_value"
+            android:layout_width="140dp"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:visibility="gone"
+            android:background="@drawable/curv_background"
+            android:text="200" />
+
+
+        <EditText
+            android:id="@+id/row_forecastQty"
+            android:layout_width="0dp"
+            android:layout_weight=".5"
+            android:layout_height="60dp"
+            android:hint="qty"
+            android:gravity="center"
+            android:textColorHint="#00ff00"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            android:descendantFocusability="beforeDescendants"
+            android:background="@drawable/curv_background"
+            android:inputType="number"/>
+    </LinearLayout>
+<!--    </HorizontalScrollView>-->
+</androidx.cardview.widget.CardView>

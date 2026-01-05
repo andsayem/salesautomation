@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout  android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <include layout="@layout/toolbar" />
+
+    <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        card_view:cardCornerRadius="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_10dp"
+                android:text="All bucket product"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:layout_margin="@dimen/margin_5dp"
+                android:background="@color/colorPrimary" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <EditText
+        android:id="@+id/edt_search_order_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:hint="Search a product" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:orientation="horizontal">
+    <Button
+        android:id="@+id/btn_add_newproduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_5dp"
+        android:padding="@dimen/margin_5dp"
+        android:background="#dff0d8"
+        android:text="ADD NEW PRODUCT"
+        android:gravity="center"
+        android:visibility="visible"
+        android:layout_gravity="right"
+        android:textColor="#000" />
+
+    <Button
+        android:id="@+id/btn_close_order_request"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_5dp"
+        android:padding="@dimen/margin_5dp"
+        android:background="#e91e63"
+        android:text="CLOSE ORDER REQUEST"
+        android:gravity="center"
+        android:visibility="visible"
+        android:layout_gravity="right"
+        android:textColor="#fff" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/lin_lay_product_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_5dp"
+        android:layout_marginRight="@dimen/margin_5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/row_txt_sl_no"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".3"
+            android:text="SL"/>
+
+        <TextView
+            android:id="@+id/row_txt_product_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.3"
+            android:text="Product Name"/>
+
+        <TextView
+            android:id="@+id/row_txt_product_qty"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5"
+            android:text="QTY"/>
+
+        <TextView
+            android:id="@+id/row_txt_product_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_5dp"
+            android:layout_marginRight="@dimen/margin_5dp"
+            android:text="Value"
+            android:layout_weight=".5" />
+
+        <TextView
+            android:id="@+id/row_txt_product_free"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_5dp"
+            android:layout_marginRight="@dimen/margin_5dp"
+            android:text="Free"
+            android:layout_weight=".5" />
+
+        <TextView
+            android:id="@+id/row_txt_product_wastage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Wastage QTY"
+            android:layout_weight=".5" />
+
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/order_list_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/margin_5dp"
+        android:layout_marginRight="@dimen/margin_5dp"
+        android:layout_marginBottom="50dp"
+        android:layout_height="wrap_content" />
+
+
+
+
+
+
+</LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+    <LinearLayout
+        android:id="@+id/linlay_delete"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="bottom"
+        android:layout_gravity="bottom">
+
+        <Button
+            android:id="@+id/btn_confirm_order_request"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_5dp"
+            android:padding="@dimen/margin_5dp"
+            android:background="#e91e63"
+            android:text="CONFIRM ORDER REQUEST"
+            android:gravity="center"
+            android:visibility="visible"
+            android:layout_gravity="right"
+            android:textColor="#fff" />
+        <Button
+            android:id="@+id/btn_order_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_5dp"
+            android:padding="@dimen/margin_5dp"
+            android:background="#F44336"
+            android:text="DELETE"
+            android:gravity="center"
+            android:visibility="visible"
+            android:layout_gravity="right"
+            android:textColor="#fff" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/lin_lay_offer"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:visibility="gone"
+        android:layout_gravity="bottom">
+
+        <RadioGroup
+            android:id="@+id/radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/ee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="REGULAR"
+                android:checked="true" />
+
+            <RadioButton
+                android:id="@+id/eee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="EXCLUSIVE" />
+            <RadioButton
+                android:id="@+id/eeee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BUNDLE" />
+
+        </RadioGroup>
+        <Button
+            android:id="@+id/btn_order_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_5dp"
+            android:padding="@dimen/margin_5dp"
+            android:background="#F44336"
+            android:text="CONFIRM"
+            android:gravity="center"
+            android:visibility="visible"
+            android:layout_gravity="right"
+            android:textColor="#fff" />
+
+    </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

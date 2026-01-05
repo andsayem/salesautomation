@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" >
+
+
+
+ <!-- For Android 10+ -->
+
+<!--    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" /> &lt;!&ndash; Required for Android 12+ &ndash;&gt;-->
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-feature android:name="android.hardware.usb.host" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ssg_logo"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ssg_logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        android:windowSoftInputMode="stateHidden|adjustPan" >
+
+
+<!--        <service-->
+<!--            android:name=".live.LocationForegroundService"-->
+<!--            android:foregroundServiceType="location"-->
+<!--            android:stopWithTask="false" /> &lt;!&ndash; Survive app closure &ndash;&gt;-->
+
+<!--         Restart service on boot -->
+<!--        <receiver-->
+<!--            android:name=".live.BootReceiver"-->
+<!--            android:enabled="true"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.BOOT_COMPLETED" />-->
+
+<!--            </intent-filter>-->
+<!--        </receiver>-->
+
+<!--        <receiver android:name=".live.NetworkReceiver" android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />-->
+<!--            </intent-filter>-->
+<!--        </receiver>-->
+
+        <provider
+            android:name=".utils.GenericFileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" /> <!-- <meta-data -->
+        <!-- android:name="com.google.android.gms.version" -->
+        <!-- android:value="@integer/google_play_services_version" /> -->
+        <!-- The API key for Google Maps-based APIs. -->
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="barcode" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/map_api_key" />
+
+        <activity
+            android:name=".drawer.SplashActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+                android:resource="@xml/device_filter" />
+        </activity>
+        <activity
+            android:name=".PlatformActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".drawer.DrawerMain"
+            android:hardwareAccelerated="true"
+
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".LoginActivity"
+             />
+        <activity
+            android:name=".visit.OrderActivity"
+
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".returnchange.ReturnAndChangeActivity"
+             />
+        <activity
+            android:name=".IMSFOActivity"
+          />
+        <activity
+            android:name=".PrivacyPolicyActivity_Web"
+             />
+        <activity
+            android:name=".wastage.WastageActivity"
+            />
+        <activity
+            android:name=".OfferImageShowActivity"
+             />
+        <activity
+            android:name=".MainActivity_Web"
+            android:hardwareAccelerated="false"
+            />
+        <activity
+            android:name=".bucket.BucketAmountWeb"
+            android:hardwareAccelerated="false"
+             />
+        <activity
+            android:name=".bucket.ManageOrderActivityWeb"
+             />
+        <activity
+            android:name=".retailer.NewRetailerActivity"
+             />
+        <activity
+            android:name=".retailer.EditRetailerActivity"
+            />
+        <activity
+            android:name=".returnchange.ReturnChangeReportWeb"
+             />
+        <activity
+            android:name=".ShirtListActivity"
+          />
+        <activity
+            android:name=".SCDDashboardActivity"
+          /> <!-- <activity android:name=".barcode.ScanBarcodeActivity" android:screenOrientation="portrait"/> -->
+        <activity
+            android:name=".report.order.ReportWeb"
+            android:label="@string/app_name"
+           />
+        <activity
+            android:name=".drawer.dashboard.DashboardTodaysVisitActivity"
+            android:label="@string/app_name"
+            />
+        <activity
+            android:name=".OnlineExamWeb"
+            android:label="@string/app_name"
+             />
+        <activity
+            android:name=".AssessmentExamWeb"
+            android:label="@string/app_name"
+            />
+        <activity
+            android:name=".ProductStrengthActivity"
+            android:label="@string/app_name"
+            />
+        <activity
+            android:name=".ProductStrengthDetails"
+            android:label="@string/app_name"
+            >
+        </activity>
+        <activity
+            android:name=".FanQCWeb"
+            android:label="@string/app_name"
+             >
+        </activity>
+
+
+
+        <activity
+            android:name=".returnpolicy.OrderActivity_RP"
+            android:label="@string/app_name"
+             >
+        </activity>
+        <activity
+            android:name=".returnpolicy.BucketAmountWeb_RP"
+            android:label="@string/app_name"
+            >
+        </activity>
+        <activity
+            android:name=".returnpolicy.report.ManageReturnActivityWeb"
+            android:label="@string/app_name"
+             >
+        </activity>
+
+
+<!--        <activity android:name=".qr.Qrc_ScannerBarcodeActivity"-->
+<!--            android:label="@string/scan_barcode"/>-->
+
+<!--        <activity-->
+<!--            android:name=".qr.Qrc_ResultShowActivity"-->
+<!--            android:label="@string/app_name">-->
+
+<!--        </activity>-->
+
+        <activity
+            android:name=".ProductTrackingWeb"
+            android:label="@string/app_name">
+
+        </activity>
+        <activity
+            android:name=".FOForecastWeb"
+            android:label="@string/app_name">
+
+        </activity>
+
+        <activity
+            android:name=".FOForecastWebRemark"
+            android:label="@string/app_name">
+
+        </activity>
+
+        <service
+            android:name=".FCNNotificationService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name=".utils.MyReceiver"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.DATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

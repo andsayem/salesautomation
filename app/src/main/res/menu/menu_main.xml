@@ -1,0 +1,52 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".main.MainActivity">
+
+    <item
+        android:id="@+id/action_help"
+        android:title="action_search"
+        android:orderInCategory="100"
+        android:icon="@drawable/help_hover"
+        app:showAsAction="ifRoom" >
+
+    </item>
+    <item
+        android:id="@+id/action_search"
+        android:title="action_search"
+        android:orderInCategory="100"
+        android:icon="@drawable/search_hover"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_filtter"
+        android:title="action_search"
+        android:orderInCategory="100"
+        android:icon="@drawable/filtter_hover"
+        app:showAsAction="ifRoom" >
+
+
+        <menu>
+            <item android:id="@+id/item_top_game"
+
+                android:title="Top games"
+                />
+            <item android:id="@+id/item_top_apps"
+
+                android:title="Top Apps"
+                />
+            <item android:id="@+id/help2"
+
+                android:title="Top Paid"
+                />
+            <!--android:icon="@drawable/attachment"-->
+        </menu>
+
+    </item>
+
+
+    <!--<item-->
+        <!--android:id="@+id/action_settings"-->
+        <!--android:title="@string/action_settings"-->
+        <!--android:orderInCategory="100"-->
+        <!--app:showAsAction="never" />-->
+</menu>

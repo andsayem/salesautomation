@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btn_replace_imei_scan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/margin_10dp"
+        android:text="Scan Replace IMEI"/>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@mipmap/ssg_logo"/>
+    <Button
+        android:id="@+id/btn_bp_scan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="30dp"
+        android:layout_margin="@dimen/margin_10dp"
+        android:text="Scan BP ID"/>
+
+
+
+    <TextView
+        android:id="@+id/txt_bp_id"
+        android:layout_width="wrap_content"
+      android:visibility="gone"
+        android:layout_marginBottom="@dimen/margin_10dp"
+        android:layout_height="wrap_content" />
+
+        <TextView
+        android:id="@+id/txt_bp_id_confrim"
+        android:layout_width="wrap_content"
+     android:text="BP not confirmed"
+        android:layout_marginBottom="@dimen/margin_10dp"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/edit_txt_customername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/curv_background"
+        android:hint="Customer Name"
+        android:imeOptions="actionNext"
+        android:padding="10dp"
+        android:maxLines="1"
+        android:maxLength="100"
+        android:singleLine="true"
+        android:textColor="@color/deep_gray" />
+
+    <EditText
+        android:id="@+id/edit_txt_customerphone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/curv_background"
+        android:hint="Customer Phone"
+        android:imeOptions="actionDone"
+        android:inputType="number"
+        android:maxLength="11"
+        android:maxLines="1"
+        android:padding="10dp"
+        android:textColor="@color/deep_gray" />
+
+
+
+
+</LinearLayout>
+    <Button
+        android:id="@+id/btn_go_forsale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+      android:layout_alignParentBottom="true"
+      android:layout_alignParentRight="true"
+        android:text="Next"/>
+</RelativeLayout>

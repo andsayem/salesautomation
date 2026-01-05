@@ -1,0 +1,76 @@
+//apply plugin: 'com.android.application'
+//apply plugin: 'com.google.gms.google-services'
+plugins{
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+}
+
+android {
+   // compileSdkVersion 34
+        defaultConfig {
+        compileSdk 35
+        applicationId "com.ssgbd.salesautomation"
+        minSdkVersion 19
+        targetSdkVersion 35
+        versionCode 102
+        versionName "1.10.2"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    namespace 'com.ssgbd.salesautomation'
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation 'com.google.firebase:firebase-messaging:23.1.2'
+    implementation 'androidx.room:room-common:2.5.0'
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
+    implementation 'androidx.work:work-runtime-ktx:2.8.1'
+    implementation 'com.google.android.gms:play-services-vision:20.1.3'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.navigation:navigation-fragment:2.7.3'
+    implementation 'androidx.navigation:navigation-ui:2.7.3'
+    def work_version = "2.7.1"
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+   //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation "androidx.constraintlayout:constraintlayout:2.0.0"
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation 'de.hdodenhof:circleimageview:1.3.0'
+    implementation 'com.android.support:design:34.0.0'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+   // implementation 'com.google.android.gms:play-services-safetynet:18.0.1'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-beta05'
+    implementation "androidx.cardview:cardview:1.0.0"
+    implementation 'eu.the4thfloor.volley:com.android.volley:2015.05.28'
+    // Import the Firebase BoM
+    implementation platform('com.google.firebase:firebase-bom:31.5.0')
+    // Add the dependency for the Firebase SDK for Google Analytics
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation "androidx.work:work-runtime:$work_version"
+    implementation 'com.github.bumptech.glide:glide:4.15.1'
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
+    //  implementation ('eu.livotov.labs.android:CAMView:2.0.1@aar') {transitive=true}
+//  implementation 'xyz.belvi.mobilevision:barcodescanner:2.0.3'
+//  implementation 'com.journeyapps:zxing-android-embedded:4.1.0'
+//  implementation 'com.google.zxing:core:3.3.3'
+ // implementation 'com.android.tools.build:gradle:34'
+
+  //  implementation 'com.google.android.exoplayer:exoplayer:2.X.X'
+}

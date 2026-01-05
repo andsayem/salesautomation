@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linlay_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+
+            card_view:cardCornerRadius="4dp">
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/row_sl_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/margin_10dp"
+                    android:text=""
+                    android:textStyle="bold|italic"
+                    android:textColor="@color/deep_gray" />
+                <TextView
+                    android:id="@+id/row_order_no"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:padding="@dimen/margin_10dp"
+                    android:text=""
+                    android:textStyle="bold|italic"
+                    android:textColor="#338dcd" />
+
+                <TextView
+                    android:id="@+id/row_order_date_time"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:padding="@dimen/margin_10dp"
+                    android:text=""
+                    android:textStyle="bold|italic"
+                    android:textColor="@color/deep_gray" />
+                <TextView
+                    android:id="@+id/row_txt_customer"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:padding="@dimen/margin_10dp"
+                    android:text=""
+                    android:textStyle="bold|italic"
+                    android:textColor="@color/deep_gray" />
+                <TextView
+                    android:id="@+id/row_order_qty"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:padding="@dimen/margin_10dp"
+                    android:text=""
+                    android:textStyle="bold|italic"
+                    android:textColor="@color/deep_gray" />
+                <TextView
+                    android:id="@+id/row_orver_value"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:padding="@dimen/margin_10dp"
+                    android:text=""
+                    android:textStyle="bold|italic"
+                    android:textColor="@color/deep_gray" />
+                <TextView
+                    android:id="@+id/row_wastage_replaceqty"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:padding="@dimen/margin_10dp"
+                    android:text="Replace QTY"
+                    android:textStyle="bold|italic"
+                    android:textColor="@color/deep_gray" />
+
+                <TextView
+                    android:id="@+id/row_wastage_replacevalue"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:padding="@dimen/margin_10dp"
+                    android:text="Replace Value"
+                    android:textStyle="bold|italic"
+                    android:textColor="@color/deep_gray" />
+
+                <TextView
+                    android:id="@+id/row_wastage_excessamount"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:padding="@dimen/margin_10dp"
+                    android:text="Excess Amount"
+                    android:textStyle="bold|italic"
+                    android:textColor="@color/deep_gray" />
+            </LinearLayout>
+            </HorizontalScrollView>
+        </androidx.cardview.widget.CardView>
+<View
+    android:layout_width="match_parent"
+    android:layout_height="1px"
+    android:background="@color/deep_gray"/>
+    </LinearLayout>
+</LinearLayout>

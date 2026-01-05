@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linlay_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal">
+
+<!--        <androidx.cardview.widget.CardView-->
+<!--            xmlns:card_view="http://schemas.android.com/apk/res-auto"-->
+<!--            android:id="@+id/card_view1"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            card_view:cardCornerRadius="0dp">-->
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/row_sl_no"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:padding="@dimen/margin_10dp"
+                    android:background="@drawable/rectangle_background"
+                    android:text="111"
+                    android:textColor="@color/deep_gray" />
+
+                    <TextView
+                        android:id="@+id/row_pg_group"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:padding="@dimen/margin_10dp"
+                        android:background="@drawable/rectangle_background"
+                        android:text="PG Group"
+                        android:textColor="@color/deep_gray" />
+                    <TextView
+                        android:id="@+id/row_pg_name"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:padding="@dimen/margin_10dp"
+                        android:background="@drawable/rectangle_background"
+                        android:text="PG Name"
+                        android:textColor="@color/deep_gray" />
+                <TextView
+                    android:id="@+id/row_target_qty"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:padding="@dimen/margin_10dp"
+                    android:background="@drawable/rectangle_background"
+                    android:text="1"
+                    android:textColor="@color/deep_gray" />
+
+                <TextView
+                    android:id="@+id/row_ims_qty"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:padding="@dimen/margin_10dp"
+                    android:background="@drawable/rectangle_background"
+                    android:text="1"
+                    android:textColor="@color/deep_gray" />
+                <TextView
+                    android:id="@+id/row_qty_percentage"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:background="@drawable/rectangle_background"
+                    android:padding="@dimen/margin_10dp"
+                    android:text="1"
+                    android:textColor="@color/deep_gray" />
+                <TextView
+                    android:id="@+id/row_ims_contrebution"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:background="@drawable/rectangle_background"
+                    android:padding="@dimen/margin_10dp"
+                    android:text="1"
+                    android:textColor="@color/deep_gray" />
+                <TextView
+                    android:id="@+id/row_collection_qty"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:padding="@dimen/margin_10dp"
+                    android:background="@drawable/rectangle_background"
+                    android:text="1"
+                    android:textColor="@color/deep_gray" />
+                <TextView
+                    android:id="@+id/row_pcs_achiv_percent"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:padding="@dimen/margin_10dp"
+                    android:background="@drawable/rectangle_background"
+                    android:text="1"
+                    android:textColor="@color/deep_gray" />
+                <TextView
+                    android:id="@+id/row_group_achiv_percent"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:padding="@dimen/margin_10dp"
+                    android:background="@drawable/rectangle_background"
+                    android:text=""
+                    android:textColor="@color/deep_gray" />
+                    <TextView
+                        android:id="@+id/row_pg_incentive"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:padding="@dimen/margin_10dp"
+                        android:background="@drawable/rectangle_background"
+                        android:text="PG Incentive"
+                        android:textColor="@color/deep_gray" />
+                    <TextView
+                        android:id="@+id/row_group_incentive"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center"
+                        android:padding="@dimen/margin_10dp"
+                        android:background="@drawable/rectangle_background"
+                        android:text="Group Incentive"
+                        android:textColor="@color/deep_gray" />
+                <TextView
+                    android:id="@+id/row_total_amount"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:padding="@dimen/margin_10dp"
+                    android:background="@drawable/rectangle_background"
+                    android:text="0"
+                    android:textColor="@color/deep_gray" />
+
+                <TextView
+                    android:id="@+id/row_orver_Discount"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:padding="@dimen/margin_10dp"
+                    android:text="Discount"
+                    android:visibility="gone"
+                    android:background="@drawable/rectangle_background"
+                    android:textColor="@color/deep_gray" />
+
+            </LinearLayout>
+            </HorizontalScrollView>
+<!--        </androidx.cardview.widget.CardView>-->
+<View
+    android:layout_width="match_parent"
+    android:layout_height="1px"
+    android:background="@color/deep_gray"/>
+    </LinearLayout>
+</LinearLayout>

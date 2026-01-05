@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1060783711071",
+    "project_id": "ssforce-f3128",
+    "storage_bucket": "ssforce-f3128.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060783711071:android:6c03a2f675104446c84cea",
+        "android_client_info": {
+          "package_name": "com.ssgbd.salesautomation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1060783711071-tfb6v3dmdlpkjmp5mohee5uvvjlc2b6u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcr9hQ0RRKq_GOm-CqZyw-lRLw79GKv5c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1060783711071-tfb6v3dmdlpkjmp5mohee5uvvjlc2b6u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

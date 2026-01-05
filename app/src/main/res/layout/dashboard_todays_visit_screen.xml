@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <include layout="@layout/toolbar" />
+
+    <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        card_view:cardCornerRadius="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_10dp"
+                android:text="Visit"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:layout_margin="@dimen/margin_5dp"
+                android:background="@color/colorPrimary" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <EditText
+        android:id="@+id/edt_search_order_product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:hint="Search a product" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/margin_10dp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/lin_lay_product_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_5dp"
+        android:layout_marginRight="@dimen/margin_5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/row_txt_sl_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="SL"/>
+
+        <TextView
+            android:id="@+id/row_txt_route_name"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_5dp"
+            android:text="Route Name"/>
+
+        <TextView
+            android:id="@+id/row_retailer_name"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+
+            android:text="Retailer Name"/>
+
+        <TextView
+            android:id="@+id/row_txt_date"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_5dp"
+            android:layout_marginRight="@dimen/margin_5dp"
+            android:text="Date"/>
+
+        <TextView
+            android:id="@+id/row_txt_status"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_5dp"
+            android:layout_marginRight="@dimen/margin_5dp"
+            android:text="Status"/>
+
+
+
+    </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/visit_list_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/margin_5dp"
+        android:layout_marginRight="@dimen/margin_5dp"
+        android:layout_marginBottom="50dp"
+        android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+        </HorizontalScrollView>
+
+
+
+</LinearLayout>
+
+
+
+</RelativeLayout>

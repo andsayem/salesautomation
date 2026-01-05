@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_5dp"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="@dimen/margin_10dp"
+            android:text="FO Feedback"
+            android:textColor="#ffffff" />
+
+        <TextView
+        android:id="@+id/txt_close_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:padding="@dimen/margin_10dp"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="center"
+        android:text="Back" />
+    </RelativeLayout>
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/margin_5dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_10dp"
+            android:text="Product Demand" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:orientation="horizontal">
+            <TextView
+                android:id="@+id/txt_category_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableRight="@mipmap/arrow_right"
+                android:padding="@dimen/margin_10dp"
+                android:text="PG"
+                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/txt_product_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@mipmap/arrow_right"
+                    android:padding="@dimen/margin_10dp"
+                    android:text="SKU"
+                    android:textStyle="bold" />
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:id="@+id/edt_txt_qty"
+                    android:hint="Your Search Text"
+                    android:background="@drawable/curv_background"
+                    android:padding="@dimen/margin_10dp"
+                    android:visibility="visible"
+                    android:inputType="none"
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:textSize="18sp"/>
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:id="@+id/edt_txt_feed"
+                    android:hint="Your Search Text"
+                    android:background="@drawable/curv_background"
+                    android:padding="@dimen/margin_10dp"
+                    android:visibility="visible"
+                    android:inputType="none"
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:textSize="18sp"/>
+            </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_10dp"
+            android:text="Add feedback :" />
+
+        <androidx.cardview.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            card_view:cardCornerRadius="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/margin_10dp"
+                    android:text="Satisfied with Product Support?"
+                    android:textColor="@color/colorPrimary" />
+
+                <RadioGroup
+                    android:id="@+id/radio_group_q1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="horizontal"
+                    android:padding="@dimen/margin_5dp">
+
+                    <RadioButton
+                        android:id="@+id/radio_y_q_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="YES"/>
+
+                    <RadioButton
+                        android:id="@+id/radio_n_q_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="NO"/>
+
+                </RadioGroup>
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="@dimen/margin_5dp"
+            card_view:cardCornerRadius="4dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/margin_10dp"
+                    android:text="Is DB supportive for Sales and Credit Facility?"
+                    android:textColor="@color/colorPrimary" />
+
+                <RadioGroup
+                    android:id="@+id/radio_group_q2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="horizontal"
+                    android:padding="@dimen/margin_5dp">
+
+                    <RadioButton
+                        android:id="@+id/radio_y_q_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="YES"/>
+
+                    <RadioButton
+                        android:id="@+id/radio_n_q_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="NO"/>
+
+                </RadioGroup>
+            </LinearLayout>
+
+
+
+        </androidx.cardview.widget.CardView><androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="@dimen/margin_5dp"
+        card_view:cardCornerRadius="4dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:padding="@dimen/margin_10dp"
+                android:text="Are you getting helpline support properly?"
+                android:textColor="@color/colorPrimary" />
+
+            <RadioGroup
+                android:id="@+id/radio_group_q3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal"
+                android:padding="@dimen/margin_5dp">
+
+                <RadioButton
+                    android:id="@+id/radio_y_q_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="YES"/>
+
+                <RadioButton
+                    android:id="@+id/radio_n_q_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NO"/>
+
+            </RadioGroup>
+        </LinearLayout>
+
+
+
+    </androidx.cardview.widget.CardView><androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="@dimen/margin_5dp"
+        card_view:cardCornerRadius="4dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:padding="@dimen/margin_10dp"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:text="Any suggestions?"
+                android:textColor="@color/colorPrimary" />
+
+            <RadioGroup
+                android:id="@+id/radio_group_q4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal"
+                android:padding="@dimen/margin_5dp">
+
+                <RadioButton
+                    android:id="@+id/radio_y_q_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="YES"/>
+
+                <RadioButton
+                    android:id="@+id/radio_n_q_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NO"/>
+
+            </RadioGroup>
+        </LinearLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="@dimen/margin_5dp"
+            card_view:cardCornerRadius="4dp">
+
+
+
+        </androidx.cardview.widget.CardView>
+
+        <EditText
+            android:id="@+id/edt_comment"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginLeft="@dimen/margin_10dp"
+            android:layout_marginRight="@dimen/margin_10dp"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:background="@drawable/curv_background"
+            android:hint="Comment"
+            android:padding="@dimen/margin_5dp" />
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_margin="@dimen/margin_10dp"
+            android:visibility="visible"
+            android:textColor="#fff"
+            android:background="@drawable/curv_button_hover"
+            android:text="Submit" />
+</LinearLayout>
+</LinearLayout>
+    </ScrollView>
+</LinearLayout>

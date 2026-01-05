@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="@dimen/margin_5dp">
+
+        <TextView
+            android:id="@+id/txt_fromdate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:layout_marginBottom="@dimen/margin_10dp"
+            android:layout_weight="1"
+            android:background="@drawable/curv_background"
+            android:padding="@dimen/margin_5dp"
+            android:text="From Date"
+            android:textColor="#736b6b"
+            android:textStyle="bold"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/txt_todate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:layout_marginBottom="@dimen/margin_10dp"
+            android:layout_weight="1"
+            android:background="@drawable/curv_background"
+            android:padding="@dimen/margin_5dp"
+            android:text="To date"
+            android:textColor="#736b6b"
+            android:textStyle="bold"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/txt_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:layout_marginBottom="@dimen/margin_10dp"
+            android:layout_weight="1"
+            android:background="@drawable/newsec"
+            android:gravity="center"
+            android:padding="@dimen/margin_5dp"
+            android:text="Search"
+            android:textColor="#736b6b"
+            android:textStyle="bold"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_15dp"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/row_sl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/margin_10dp"
+
+                    android:text="SL"
+                    android:textColor="@color/deep_gray" />
+
+                <TextView
+                    android:id="@+id/row_return_order"
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/margin_10dp"
+                    android:text="Return Order"
+                    android:textColor="@color/deep_gray" />
+
+
+                <TextView
+                    android:id="@+id/row_return_order_date"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/margin_10dp"
+                    android:text="Return Order Date"
+                    android:textColor="@color/deep_gray" />
+
+
+                <TextView
+                    android:id="@+id/row_fo"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/margin_10dp"
+                    android:text="FO"
+                    android:textColor="@color/deep_gray" />
+
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/margin_10dp"
+                    android:text="Customer"
+                    android:textColor="@color/deep_gray" />
+
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/margin_10dp"
+                    android:text="Return QTY"
+                    android:textColor="@color/deep_gray" />
+
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/margin_10dp"
+                    android:text="Return Value"
+                    android:textColor="@color/deep_gray" />
+
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/margin_10dp"
+                    android:text="Change QTY"
+                    android:textColor="@color/colorPrimary" />
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/margin_10dp"
+                    android:text="Change Value"
+                    android:textColor="@color/colorPrimary" />
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/margin_10dp"
+                    android:text="Excess Amount"
+                    android:textColor="@color/colorPrimary" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/retailer_list_recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:paddingBottom="40dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/retailer_list_recyclerView"
+                    android:layout_marginTop="30dp"
+
+                    android:gravity="right|center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/row_customer"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/margin_10dp"
+                        android:text="Grand Total :"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorPrimary" />
+
+
+                    <TextView
+                        android:id="@+id/row_return_qty"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_10dp"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/margin_10dp"
+                        android:text="0000"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorPrimary" />
+
+
+                    <TextView
+                        android:id="@+id/row_return_value"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/margin_10dp"
+                        android:text="0000"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorPrimary" />
+
+
+                    <TextView
+                        android:id="@+id/row_change_qty"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/margin_10dp"
+                        android:textStyle="bold"
+                        android:text="0000"
+                        android:textColor="@color/colorPrimary" />
+
+                    <TextView
+                        android:id="@+id/row_change_value"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/margin_10dp"
+                        android:text="0000"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorPrimary" />
+
+                    <TextView
+                        android:id="@+id/row_excess_amount"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/margin_10dp"
+                        android:text="0000"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorPrimary" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+</LinearLayout>

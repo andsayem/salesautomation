@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+    <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_5dp"
+        card_view:cardCornerRadius="4dp">
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linlay_main"
+
+        android:padding="@dimen/margin_5dp"
+        android:orientation="vertical">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/row_sl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/margin_10dp"
+                        android:text="SL"
+                        android:textColor="@color/deep_gray" />
+
+                    <TextView
+                        android:id="@+id/row_return_order"
+                        android:layout_width="170dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/margin_10dp"
+                        android:text="Return Order"
+                        android:textColor="#338dcd" />
+
+                    <TextView
+                        android:id="@+id/row_return_order_date"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/margin_10dp"
+                        android:text="Return Order Date"
+                        android:textColor="@color/deep_gray" />
+
+
+                    <TextView
+                        android:id="@+id/row_fo"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/margin_10dp"
+                        android:text="Retailer"
+                        android:textColor="@color/deep_gray" />
+
+
+
+
+                    <TextView
+                        android:id="@+id/row_customer"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/margin_10dp"
+                        android:text="Customer"
+                        android:textColor="@color/deep_gray" />
+
+
+                    <TextView
+                        android:id="@+id/row_return_qty"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_10dp"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/margin_10dp"
+                        android:text="Return QTY"
+                        android:textColor="@color/deep_gray" />
+
+
+                    <TextView
+                        android:id="@+id/row_return_value"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/margin_10dp"
+                        android:text="Return Value"
+                        android:textColor="@color/deep_gray" />
+
+
+
+
+                    <TextView
+                        android:id="@+id/row_change_qty"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/margin_10dp"
+                        android:text="-"
+                        android:textColor="@color/deep_gray" />
+                    <TextView
+                        android:id="@+id/row_change_value"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/margin_10dp"
+                        android:text="-"
+                        android:textColor="@color/deep_gray" />
+
+                    <TextView
+                        android:id="@+id/row_excess_amount"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/margin_10dp"
+                        android:text="-"
+                        android:textColor="@color/deep_gray" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout></HorizontalScrollView>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

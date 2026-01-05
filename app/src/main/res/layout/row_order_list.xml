@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+    <!--<androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"-->
+
+        <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+
+        <!--android:id="@+id/card_view"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+
+        <!--android:layout_margin="@dimen/margin_5dp"-->
+
+        <!--card_view:cardCornerRadius="4dp">-->
+
+    <LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_5dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/lin_lay_product_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_add_product_cross"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/row_txt_order_id"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".3"
+                android:text="6467-181121260"/>
+
+            <TextView
+                android:id="@+id/row_txt_order_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2018-11-21 02:39:37"/>
+
+            <TextView
+                android:id="@+id/row_txt_customer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Ajgar General Store
+8801726904995"/>
+
+            <TextView
+                android:id="@+id/row_txt_product_qty"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_5dp"
+                android:layout_marginRight="@dimen/margin_5dp"
+                android:text="12"
+                android:layout_weight=".4" />
+
+            <TextView
+                android:id="@+id/row_txt_product_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="25,320.00"
+                android:layout_weight=".7" />
+
+        </LinearLayout>
+    </LinearLayout>
+<!--</androidx.cardview.widget.CardView>-->

@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_5dp"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="@dimen/margin_10dp"
+            android:text="FO Feedback"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/txt_close_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:padding="@dimen/margin_10dp"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center"
+            android:text="Back" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_5dp"
+        android:background="@color/fb_gray"
+        android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="50dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin_5dp"
+        card_view:cardCornerRadius="4dp">
+
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_5dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_10dp"
+            android:background="@drawable/curv_background_demand"
+            android:text="Product Demand" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:orientation="horizontal">
+            <TextView
+                android:id="@+id/txt_category_list"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="match_parent"
+                android:drawableRight="@mipmap/arrow_right"
+                android:padding="@dimen/margin_10dp"
+                android:text="PG"
+                android:background="@drawable/curv_background"
+                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/txt_product_list"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="match_parent"
+                    android:drawableRight="@mipmap/arrow_right"
+                    android:padding="@dimen/margin_10dp"
+                    android:text="SKU"
+                    android:background="@drawable/curv_background"
+                    android:textStyle="bold" />
+                <EditText
+                    android:id="@+id/edt_txt_demandqty"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/margin_40dp"
+                    android:hint="Qty"
+                    android:background="@drawable/curv_background"
+                    android:gravity="center"
+                    android:inputType="numberDecimal" />
+
+            </LinearLayout>
+         <EditText
+             android:id="@+id/edt_demand_text"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:hint="Text"
+             android:background="@drawable/curv_background"
+             android:padding="@dimen/margin_10dp"
+             android:visibility="visible"
+             android:inputType="none"
+             android:layout_marginTop="@dimen/margin_5dp"
+             android:textSize="18sp"/>
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal">
+             <Button
+                 android:id="@+id/btn_show_dimand"
+                 android:layout_width="0dp"
+                 android:layout_weight="1"
+                 android:layout_height="@dimen/margin_40dp"
+                 android:text="Show"
+                 android:layout_marginTop="@dimen/margin_10dp"
+                 android:background="@drawable/curv_background"
+                 android:padding="@dimen/margin_10dp"
+                 android:visibility="visible"  />
+             <Button
+                 android:id="@+id/btn_add_demand"
+                 android:layout_width="0dp"
+                 android:layout_weight="1"                 android:layout_height="@dimen/margin_40dp"
+                 android:text="Add+"
+                 android:layout_marginTop="@dimen/margin_10dp"
+                 android:background="@drawable/curv_background"
+                 android:padding="@dimen/margin_10dp"
+                 android:visibility="visible"  />
+         </LinearLayout>
+
+
+</LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin_5dp"
+        card_view:cardCornerRadius="4dp">
+
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_5dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_10dp"
+            android:background="@drawable/curv_background_demand"
+            android:text="Replacement Pending" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:orientation="horizontal">
+            <TextView
+                android:id="@+id/txt_send_date"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="match_parent"
+                android:drawableRight="@mipmap/arrow_right"
+                android:padding="@dimen/margin_10dp"
+                android:text="Send Date"
+                android:background="@drawable/curv_background"
+                android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edt_replacement_value"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/margin_40dp"
+                    android:hint="Value"
+                    android:background="@drawable/curv_background"
+                    android:gravity="center"
+                    android:inputType="numberDecimal" />
+
+            </LinearLayout>
+            <EditText
+                android:id="@+id/edt_replacement_feedback"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_40dp"
+                android:hint="Your Text here"
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:background="@drawable/curv_background"
+                android:padding="@dimen/margin_10dp"
+                android:visibility="visible"
+                android:inputType="none"
+                android:textSize="18sp"/>
+
+</LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+    <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin_5dp"
+        card_view:cardCornerRadius="4dp">
+
+
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_5dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_10dp"
+            android:background="@drawable/curv_background_demand"
+            android:text="Free Pending " />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:orientation="horizontal">
+
+
+                <EditText
+                    android:id="@+id/edt_freepending_feedback"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+
+                    android:hint="Text"
+                    android:background="@drawable/curv_background"
+                    android:padding="@dimen/margin_10dp"
+                    android:visibility="visible"
+                    android:inputType="none"
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:textSize="18sp"/>
+
+</LinearLayout>
+</LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin_5dp"
+        card_view:cardCornerRadius="4dp">
+
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_5dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_10dp"
+            android:background="@drawable/curv_background_demand"
+            android:text="Competition Facts" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:orientation="horizontal">
+
+
+                <EditText
+                    android:id="@+id/edt_competition_feedback"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+
+                    android:hint="Text"
+                    android:background="@drawable/curv_background"
+                    android:padding="@dimen/margin_10dp"
+                    android:visibility="visible"
+                    android:inputType="none"
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:textSize="18sp"/>
+
+</LinearLayout>
+</LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin_5dp"
+        card_view:cardCornerRadius="4dp">
+
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_5dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_10dp"
+            android:background="@drawable/curv_background_demand"
+            android:text="Complain Box" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:orientation="horizontal">
+
+
+                <EditText
+                    android:id="@+id/edt_complain_feedback"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:hint="Text"
+                    android:background="@drawable/curv_background"
+                    android:padding="@dimen/margin_10dp"
+                    android:visibility="visible"
+                    android:inputType="none"
+                    android:layout_marginBottom="@dimen/margin_10dp"
+                    android:textSize="18sp"/>
+
+</LinearLayout>
+</LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+        <Button
+            android:id="@+id/btn_send_feedback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/curv_button_login_hover"
+            android:text="Send"
+            android:layout_marginBottom="@dimen/margin_10dp"
+            android:layout_marginRight="@dimen/margin_10dp"
+            android:textColor="#fff" />
+
+    </RelativeLayout>
+</LinearLayout>
+
