@@ -123,6 +123,12 @@ public class BundleOfferReportFragment extends Fragment implements View.OnClickL
         p.setName(presentYear.format(c));
         yearDTOS.add(p);
 
+
+        CategoryDTO c14 = new CategoryDTO();
+        c14.setId("2025");
+        c14.setName("2025");
+        yearDTOS.add(c14);
+
         CategoryDTO c13 = new CategoryDTO();
         c13.setId("2024");
         c13.setName("2024");

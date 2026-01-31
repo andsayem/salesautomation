@@ -154,6 +154,16 @@ public class IncentiveFragment extends Fragment implements View.OnClickListener 
         c14.setName("2023");
         yearDTOS.add(c14);
 
+        CategoryDTO c15 = new CategoryDTO();
+        c15.setId("2024");
+        c15.setName("2024");
+        yearDTOS.add(c15);
+
+        CategoryDTO c16 = new CategoryDTO();
+        c16.setId("2025");
+        c16.setName("2025");
+        yearDTOS.add(c16);
+
         spinnerYear = (Spinner) rootView.findViewById(R.id.spinnerYear);
         YearArrayAdapter adapter = new YearArrayAdapter(getActivity(),R.layout.customspinneritem, yearDTOS);
 

@@ -106,7 +106,7 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
     ProductCategoryCalculationRecyclerAdapter productCategoryCalculationRecyclerAdapter;
     ProductListRecyclerAdapter productListRecyclerAdapter;
     RecyclerView product_list_recyclerView;
-
+    private boolean isCallOrder = false;
     String CHANNEL_ID="null";
 
    // private static String DB_PATH = "/data/data/com.ssgbd.salesautomation/databases/";
@@ -275,6 +275,8 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
         linlay_category_portion = (LinearLayout)findViewById(R.id.linlay_category_portion);
         txt_retailer_name = (TextView) findViewById(R.id.txt_retailer_name);
         txt_retailer_name.setText(getIntent().getStringExtra("retailerName"));
+        isCallOrder = getIntent().getBooleanExtra("is_call_order", false);
+
         txt_category_list  = (TextView) findViewById(R.id.txt_category_list);
         txt_category_list.setOnClickListener(this);
 
@@ -621,6 +623,7 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
     }
     @Override
     public void onClick(View view) {
+        isCallOrder = getIntent().getBooleanExtra("is_call_order", false);
 
         switch (view.getId()){
 
@@ -778,7 +781,8 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
                                     userObject.put("global_company_id","1");
                                     userObject.put("is_cash",cableOfferValue);
                                     userObject.put("smart_order_id", getIntent().getStringExtra("smartOrderId"));
-                               //  Log.e("<<>>",userObject+"");
+                                    userObject.put("is_call_order", isCallOrder ? 1 : 0);
+                                    //  Log.e("<<>>",userObject+"");
                                     //adding all object to finalObject
                                     finalobject.put("userinfo", userObject);
                                     finalobject.put("discount", discountObject);
@@ -786,6 +790,8 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
                                     finalobject.put("reguler_offer", regulerOfferArray);
                                     finalobject.put("exclusive_offer", exclusiveOfferArray);
                                     finalobject.put("bundle_offer", bundleOfferArray);
+
+
 
 
                                 } catch (JSONException e) {

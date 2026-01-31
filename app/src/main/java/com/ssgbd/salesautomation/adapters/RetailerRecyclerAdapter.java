@@ -113,53 +113,110 @@ public class RetailerRecyclerAdapter extends RecyclerView.Adapter<RetailerRecycl
                     Log.e("ORDER_DISTANCE", "Distance = " + distanceInMeters + " meters");
 
                     // ৫. Distance check > 300 meters
-//                    if (distanceInMeters > 30000000000000000) {
-//                        String distanceStr = String.format("%.2f", distanceInMeters) + " meters";
-//
-//                        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-//                        builder.setTitle("দূরত্ব সতর্কতা 🗺️");
-//                        builder.setMessage("আপনি এই মুহূর্তে retailer থেকে " + distanceStr + " দূরে আছেন।\n"
-//                                + "দুরত্ব বেশি হওয়ায় এখনই order করা সম্ভব নয়।\n");
-//                                //+ "আপনি চাইলে নিচের বাটন দিয়ে retailer-এর location ম্যাপে দেখতে পারেন।");
-//                        builder.setPositiveButton("ঠিক আছে", (dialog, which) -> dialog.dismiss());
-//                        // View on Map button
-//                        builder.setNeutralButton("View on Map", (dialog, which) -> {
-//
-//                            // Maps direction URI: current location -> retailer location
-//                            Uri gmmIntentUri = Uri.parse("https://www.google.com/maps/dir/?api=1&origin="
-//                                    + currentLat + "," + currentLon
-//                                    + "&destination=" + retailerLat + "," + retailerLon
-//                                    + "&travelmode=driving");
-//
-//                            Intent intent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-//                            intent.setPackage("com.google.android.apps.maps");
-//
-//                            try {
-//                                context.startActivity(intent);
-//                            } catch (Exception ex) {
-//                                try {
-//                                    Intent unrestrictedIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-//                                    context.startActivity(unrestrictedIntent);
-//                                } catch (Exception innerEx) {
-//                                    Toast.makeText(context, "Please install a maps application", Toast.LENGTH_LONG).show();
-//                                }
-//                            }
-//
-//                        });
-//                        builder.show();
-//
-//                    } else {
+                    if (distanceInMeters > 300000) {
+                        String distanceStr = String.format("%.2f", distanceInMeters) + " meters";
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                        builder.setTitle("দূরত্ব সতর্কতা 🗺️");
+                        builder.setMessage("আপনি এই মুহূর্তে retailer থেকে " + distanceStr + " দূরে আছেন।\n"
+                                + "দুরত্ব বেশি হওয়ায় এখনই order করা সম্ভব নয়।\n");
+                                //+ "আপনি চাইলে নিচের বাটন দিয়ে retailer-এর location ম্যাপে দেখতে পারেন।");
+                        builder.setPositiveButton("ঠিক আছে", (dialog, which) -> dialog.dismiss());
+                        // View on Map button
+                        builder.setNeutralButton("View on Map", (dialog, which) -> {
+
+                            // Maps direction URI: current location -> retailer location
+                            Uri gmmIntentUri = Uri.parse("https://www.google.com/maps/dir/?api=1&origin="
+                                    + currentLat + "," + currentLon
+                                    + "&destination=" + retailerLat + "," + retailerLon
+                                    + "&travelmode=driving");
+
+                            Intent intent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                            intent.setPackage("com.google.android.apps.maps");
+
+                            try {
+                                context.startActivity(intent);
+                            } catch (Exception ex) {
+                                try {
+                                    Intent unrestrictedIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                                    context.startActivity(unrestrictedIntent);
+                                } catch (Exception innerEx) {
+                                    Toast.makeText(context, "Please install a maps application", Toast.LENGTH_LONG).show();
+                                }
+                            }
+
+                        });
+                        builder.show();
+
+                    } else {
                         // Distance acceptable → Open OrderActivity
                         Intent intent = new Intent(context, OrderActivity.class);
                         intent.putExtra("retailerId", itemFeed.getRetailer_id());
                         intent.putExtra("retailerName", itemFeed.getRetailer_name());
                         intent.putExtra("poient_id", itemFeed.getPoint_id());
                         intent.putExtra("from", "visit");
+                        intent.putExtra("is_call_order", false);
                         context.startActivity(intent);
-                    //}
+                    }
 
                 }
             });
+
+
+            holder.row_call_order.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    // ১. Check if retailer location exists
+                    if (itemFeed.getLat().equalsIgnoreCase("") || itemFeed.getLon().equalsIgnoreCase("")) {
+                        Toast.makeText(context, "Retailer location not available", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    // ২. Check location permission
+                    if (ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION)
+                            != PackageManager.PERMISSION_GRANTED) {
+                        ActivityCompat.requestPermissions((Activity) context,
+                                new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 99);
+                        return;
+                    }
+
+                    // ৩. Get current location using GPSTracker
+                    GPSTracker gps = new GPSTracker((Activity) context);
+                    if (!gps.canGetLocation()) {
+                        gps.showSettingsAlert();
+                        return;
+                    }
+
+                    double currentLat = gps.getLatitude();
+                    double currentLon = gps.getLongitude();
+
+                    double retailerLat = Double.parseDouble(itemFeed.getLat());
+                    double retailerLon = Double.parseDouble(itemFeed.getLon());
+
+                    // ৪. Calculate distance
+                    float[] results = new float[1];
+                    android.location.Location.distanceBetween(
+                            retailerLat, retailerLon,
+                            currentLat, currentLon,
+                            results
+                    );
+
+
+
+                        // Distance acceptable → Open OrderActivity
+                        Intent intent = new Intent(context, OrderActivity.class);
+                        intent.putExtra("retailerId", itemFeed.getRetailer_id());
+                        intent.putExtra("retailerName", itemFeed.getRetailer_name());
+                        intent.putExtra("poient_id", itemFeed.getPoint_id());
+                        intent.putExtra("from", "visit");
+                        intent.putExtra("is_call_order", true);   // or false
+                        context.startActivity(intent);
+
+
+                }
+            });
+
 
 
             holder.row_visit.setOnClickListener(new View.OnClickListener() {
@@ -236,7 +293,7 @@ public class RetailerRecyclerAdapter extends RecyclerView.Adapter<RetailerRecycl
     }
 
     public class NewReleasesItemViewHolder extends RecyclerView.ViewHolder{
-        public TextView row_retailer_name,row_order,row_visit,row_non_visit,row_statis;
+        public TextView row_retailer_name,row_order, row_call_order, row_visit,row_non_visit,row_statis;
         public LinearLayout linlay_main;
 
 
@@ -244,6 +301,7 @@ public class RetailerRecyclerAdapter extends RecyclerView.Adapter<RetailerRecycl
             super(itemView);
             row_retailer_name = (TextView) itemView.findViewById(R.id.row_retailer_name);
             row_order = (TextView) itemView.findViewById(R.id.row_order);
+            row_call_order = (TextView) itemView.findViewById(R.id.row_call_order);
             row_visit = (TextView) itemView.findViewById(R.id.row_visit);
             row_non_visit = (TextView) itemView.findViewById(R.id.row_non_visit);
             row_statis = (TextView) itemView.findViewById(R.id.row_statis);
