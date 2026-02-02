@@ -1,5 +1,7 @@
 package com.ssgbd.salesautomation.dtos;
 
+import android.content.Context;
+
 public class ConfirmOrderListDTO {
 
     private String retailerId = "";
@@ -24,7 +26,7 @@ public class ConfirmOrderListDTO {
         this.retailerId = retailerId;
     }
 
-    public String getRouteId() {
+    public String getRouteId(Context context) {
         return routeId;
     }
 

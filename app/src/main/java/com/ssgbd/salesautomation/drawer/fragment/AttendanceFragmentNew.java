@@ -330,7 +330,7 @@ public class AttendanceFragmentNew extends Fragment implements View.OnClickListe
                         //    for <<lolipop>>
                         if (ROUTEID.length() == 0) {
                             txt_route_list.setTextColor(Color.parseColor("#ff0000"));
-                            Toast.makeText(getActivity(), "রুট সিলেক্ট করুন।", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), " === রুট সিলেক্ট করুন।", Toast.LENGTH_SHORT).show();
                         } else {
                             doAttendanceSA(getResources().getString(R.string.base_url) + "api/apps/api/attendance");
                             checkOut = "1";

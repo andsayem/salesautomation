@@ -13,6 +13,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.location.Location;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,13 +24,23 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.ssgbd.salesautomation.R;
 import com.ssgbd.salesautomation.drawer.fragment.VisitFragment;
+import com.ssgbd.salesautomation.dtos.ConfirmOrderListDTO;
 import com.ssgbd.salesautomation.dtos.RetailerDTO;
 import com.ssgbd.salesautomation.dtos.RouteDTO;
 import com.ssgbd.salesautomation.gps.GPSTracker;
+import com.ssgbd.salesautomation.utils.SharePreference;
 import com.ssgbd.salesautomation.utils.Utility;
 import com.ssgbd.salesautomation.visit.OrderActivity;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -44,6 +55,8 @@ public class RetailerRecyclerAdapter extends RecyclerView.Adapter<RetailerRecycl
     private Context context;
     private LayoutInflater inflater;
     VisitFragment visitFragment;
+    String userId;
+    private String savedRouteId = "";
 
     public RetailerRecyclerAdapter(ArrayList<RetailerDTO> items, Context context,VisitFragment visitFragment) {
         this.routeList = items;
@@ -51,6 +64,57 @@ public class RetailerRecyclerAdapter extends RecyclerView.Adapter<RetailerRecycl
         this.visitFragment = visitFragment;
         this.arrayList = new ArrayList<RetailerDTO>();
         this.arrayList.addAll(routeList);
+        // Safe SharePreference load
+        if (context != null) {
+            this.userId = SharePreference.getUserId(context);
+           // Toast.makeText(context, "User ID: " + userId, Toast.LENGTH_LONG).show();
+            //Log.d("RetailerAdapter", "Loaded User ID: " + userId);
+        }
+
+        // Fetch saved route id from API
+        fetchSavedRouteId();
+    }
+    private void fetchSavedRouteId() {
+        if (context == null) return;
+
+        String userId = SharePreference.getUserId(context);
+        if (userId.isEmpty()) {
+            Toast.makeText(context, "User ID not found", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+         String url = context.getString(R.string.base_url) + "api/get-saved-route?userId=" + userId;
+
+        StringRequest request = new StringRequest(
+                Request.Method.GET,
+                url,
+                response -> {
+                    try {
+                        JSONObject obj = new JSONObject(response);
+                        String status = obj.getString("status");
+                        if (status.equals("1")) {
+                            // result array থেকে প্রথম object
+                            JSONArray resultArray = obj.getJSONArray("result");
+                            if (resultArray.length() > 0) {
+                                JSONObject firstItem = resultArray.getJSONObject(0);
+                                savedRouteId = firstItem.getString("routes"); // এখানে 'routes' field
+                                notifyDataSetChanged();
+                               // Toast.makeText(context, "Saved Route ID: " + savedRouteId, Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                       // Toast.makeText(context, "JSON Parsing Error", Toast.LENGTH_SHORT).show();
+                    }
+                },
+                error -> {
+                    Log.e("API_ERROR", error.toString());
+                   // Toast.makeText(context, "API Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+        );
+
+        RequestQueue queue = Volley.newRequestQueue(context);
+        queue.add(request);
     }
 
     @Override
@@ -66,10 +130,27 @@ public class RetailerRecyclerAdapter extends RecyclerView.Adapter<RetailerRecycl
 
         final RetailerDTO itemFeed = routeList.get(position);
 
+        // Get current route id from SharePreference
+
         try {
 
             holder.row_retailer_name.setText(itemFeed.getRetailer_name()+" "+"("+itemFeed.getRetailer_id()+")");
             holder.row_statis.setText(itemFeed.getStatus());
+            // Hide buttons if savedRouteId matches
+           // Toast.makeText(context, "Item Route ID: " + itemFeed.getRouteId(), Toast.LENGTH_SHORT).show();
+
+            if (savedRouteId != null && savedRouteId.equals(itemFeed.getRouteId())) {
+                holder.row_call_order.setVisibility(View.GONE);
+                holder.row_visit.setVisibility(View.VISIBLE);
+                holder.row_order.setVisibility(View.VISIBLE);
+
+            } else {
+                holder.row_call_order.setVisibility(View.VISIBLE);
+                holder.row_visit.setVisibility(View.GONE);
+                holder.row_order.setVisibility(View.GONE);
+
+            }
+
             holder.row_order.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -103,7 +184,7 @@ public class RetailerRecyclerAdapter extends RecyclerView.Adapter<RetailerRecycl
 
                     // ৪. Calculate distance
                     float[] results = new float[1];
-                    android.location.Location.distanceBetween(
+                    Location.distanceBetween(
                             retailerLat, retailerLon,
                             currentLat, currentLon,
                             results
@@ -113,7 +194,7 @@ public class RetailerRecyclerAdapter extends RecyclerView.Adapter<RetailerRecycl
                     Log.e("ORDER_DISTANCE", "Distance = " + distanceInMeters + " meters");
 
                     // ৫. Distance check > 300 meters
-                    if (distanceInMeters > 300000) {
+                    if (distanceInMeters > 60) {
                         String distanceStr = String.format("%.2f", distanceInMeters) + " meters";
 
                         AlertDialog.Builder builder = new AlertDialog.Builder(context);
@@ -196,7 +277,7 @@ public class RetailerRecyclerAdapter extends RecyclerView.Adapter<RetailerRecycl
 
                     // ৪. Calculate distance
                     float[] results = new float[1];
-                    android.location.Location.distanceBetween(
+                    Location.distanceBetween(
                             retailerLat, retailerLon,
                             currentLat, currentLon,
                             results

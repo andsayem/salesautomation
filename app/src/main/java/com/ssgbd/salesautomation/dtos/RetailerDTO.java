@@ -352,4 +352,6 @@ public class RetailerDTO {
     public void setPoint_id(String point_id) {
         this.point_id = point_id;
     }
+
+
 }
