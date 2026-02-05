@@ -263,9 +263,32 @@ public class RetailerUpdateFragment extends Fragment implements View.OnClickList
                 wdialog.dismiss();
             }
         });
-        btnDone.setOnClickListener(new View.OnClickListener() {
+//        Toast.makeText(getActivity(), "Update phone number", Toast.LENGTH_LONG).show();
+
+
+                btnDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                    // EditText থেকে phone number নেওয়া
+                    String phone = edt_txt_phone.getText().toString().trim();
+                    // +88 থাকলে remove
+                    if (phone.startsWith("+88")) {
+                        phone = phone.substring(3); // +88 remove
+                    } else if (phone.startsWith("88")) {
+                        phone = phone.substring(2); // 88 remove
+                    }
+
+                    // Check if 11 digits & starts with 01
+                    if (phone.length() != 11 || !phone.startsWith("01")) {
+                        edt_txt_phone.setError("Phone number must start with 01 and be 11 digits");
+                        edt_txt_phone.requestFocus();
+                        return;
+                    }
+
+                    String finalPhone = phone;
+
+                    // এখানে Toast দিয়ে দেখাতে পারো
+                    //Toast.makeText(getActivity(), "Final phone: " + finalPhone, Toast.LENGTH_LONG).show();
 
                 try {
                     finalobject = new JSONObject();
@@ -273,7 +296,7 @@ public class RetailerUpdateFragment extends Fragment implements View.OnClickList
                     retailerobject.put("retailer_id", RETAILER_ID);
                     retailerobject.put("retailerName", edt_txt_name.getText().toString());
                     retailerobject.put("owner", "");
-                    retailerobject.put("mobile",edt_txt_phone.getText().toString());
+                    retailerobject.put("mobile",finalPhone);
                     retailerobject.put("tnt", "");
                     retailerobject.put("email", "");
                     retailerobject.put("retailerAddress", "");

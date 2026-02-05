@@ -367,6 +367,8 @@ public class VisitFragment extends Fragment implements View.OnClickListener{
         try {
             JSONObject respjsonObj = new JSONObject(SharePreference.getRouteData(getActivity()));
             JSONArray routeArray = respjsonObj.getJSONArray("route");
+
+
             for (int i = 0; i < routeArray.length(); i++) {
                 JSONObject routeObject = routeArray.getJSONObject(i);
                 RouteDTO routeDTO = new RouteDTO();

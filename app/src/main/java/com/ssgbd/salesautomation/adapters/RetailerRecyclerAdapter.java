@@ -57,6 +57,7 @@ public class RetailerRecyclerAdapter extends RecyclerView.Adapter<RetailerRecycl
     VisitFragment visitFragment;
     String userId;
     private String savedRouteId = "";
+    private boolean hasShownToast = false; // <-- Flag for single Toast
 
     public RetailerRecyclerAdapter(ArrayList<RetailerDTO> items, Context context,VisitFragment visitFragment) {
         this.routeList = items;
@@ -70,6 +71,14 @@ public class RetailerRecyclerAdapter extends RecyclerView.Adapter<RetailerRecycl
            // Toast.makeText(context, "User ID: " + userId, Toast.LENGTH_LONG).show();
             //Log.d("RetailerAdapter", "Loaded User ID: " + userId);
         }
+
+//        if (routeList != null  ) {
+//            Toast.makeText(context,
+//                    "Retailer ২০ টার কম। এখন আছে: " + routeList.size(),
+//                    Toast.LENGTH_LONG).show();
+//        }
+
+
 
         // Fetch saved route id from API
         fetchSavedRouteId();
@@ -130,6 +139,8 @@ public class RetailerRecyclerAdapter extends RecyclerView.Adapter<RetailerRecycl
 
         final RetailerDTO itemFeed = routeList.get(position);
 
+
+
         // Get current route id from SharePreference
 
         try {
@@ -138,17 +149,43 @@ public class RetailerRecyclerAdapter extends RecyclerView.Adapter<RetailerRecycl
             holder.row_statis.setText(itemFeed.getStatus());
             // Hide buttons if savedRouteId matches
            // Toast.makeText(context, "Item Route ID: " + itemFeed.getRouteId(), Toast.LENGTH_SHORT).show();
+            if (routeList.size() < 20 && !hasShownToast) {
+                final Toast toast = Toast.makeText(context,
+                        "Retailer ২০ এর কম। এখন আছে: " + routeList.size(),
+                        Toast.LENGTH_LONG);
 
-            if (savedRouteId != null && savedRouteId.equals(itemFeed.getRouteId())) {
+                toast.show(); // show once
+                new android.os.CountDownTimer(7000, 1000) {
+                    public void onTick(long millisUntilFinished) {
+                        toast.show(); // repeat
+                    }
+                    public void onFinish() {
+                        toast.cancel();
+                    }
+                }.start();
+
+                hasShownToast = true; // mark as shown
+            }
+
+            if (routeList.size() < 20) {
+
+                // 20 or more → hide all buttons
                 holder.row_call_order.setVisibility(View.GONE);
-                holder.row_visit.setVisibility(View.VISIBLE);
-                holder.row_order.setVisibility(View.VISIBLE);
-
-            } else {
-                holder.row_call_order.setVisibility(View.VISIBLE);
                 holder.row_visit.setVisibility(View.GONE);
                 holder.row_order.setVisibility(View.GONE);
+                holder.row_non_visit.setVisibility(View.GONE);
+            } else {
+                if (savedRouteId != null && savedRouteId.equals(itemFeed.getRouteId())) {
+                    holder.row_call_order.setVisibility(View.GONE);
+                    holder.row_visit.setVisibility(View.VISIBLE);
+                    holder.row_order.setVisibility(View.VISIBLE);
 
+                } else {
+                    holder.row_call_order.setVisibility(View.VISIBLE);
+                    holder.row_visit.setVisibility(View.GONE);
+                    holder.row_order.setVisibility(View.GONE);
+
+                }
             }
 
             holder.row_order.setOnClickListener(new View.OnClickListener() {
