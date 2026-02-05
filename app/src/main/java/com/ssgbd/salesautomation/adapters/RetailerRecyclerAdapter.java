@@ -16,10 +16,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.location.Location;
 import android.net.Uri;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -71,12 +73,6 @@ public class RetailerRecyclerAdapter extends RecyclerView.Adapter<RetailerRecycl
            // Toast.makeText(context, "User ID: " + userId, Toast.LENGTH_LONG).show();
             //Log.d("RetailerAdapter", "Loaded User ID: " + userId);
         }
-
-//        if (routeList != null  ) {
-//            Toast.makeText(context,
-//                    "Retailer ২০ টার কম। এখন আছে: " + routeList.size(),
-//                    Toast.LENGTH_LONG).show();
-//        }
 
 
 
@@ -150,22 +146,55 @@ public class RetailerRecyclerAdapter extends RecyclerView.Adapter<RetailerRecycl
             // Hide buttons if savedRouteId matches
            // Toast.makeText(context, "Item Route ID: " + itemFeed.getRouteId(), Toast.LENGTH_SHORT).show();
             if (routeList.size() < 20 && !hasShownToast) {
-                final Toast toast = Toast.makeText(context,
-                        "Retailer ২০ এর কম। এখন আছে: " + routeList.size(),
-                        Toast.LENGTH_LONG);
 
-                toast.show(); // show once
-                new android.os.CountDownTimer(7000, 1000) {
-                    public void onTick(long millisUntilFinished) {
-                        toast.show(); // repeat
-                    }
-                    public void onFinish() {
-                        toast.cancel();
-                    }
-                }.start();
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
-                hasShownToast = true; // mark as shown
+                // Title
+                builder.setTitle("⚠ সতর্কবার্তা");
+                builder.setMessage("এই রুটে ২০টির কম রিটেলার রয়েছে।\n\nবর্তমানে আছে: "
+                        + routeList.size()
+                        + "\n\nঅনুগ্রহ করে রিটেলার সংখ্যা বাড়ান, তারপর অর্ডার ও ভিজিট করতে পারেন।");
+
+                builder.setCancelable(false);
+
+                // OK button with custom color
+                builder.setPositiveButton("ঠিক আছে", (dialog, which) -> dialog.dismiss());
+
+                AlertDialog dialog = builder.create();
+
+                // Customize dialog background and title
+                dialog.setOnShowListener(d -> {
+                    // Background color
+                    dialog.getWindow().setBackgroundDrawableResource(android.R.color.holo_blue_light);
+
+                    // Title color & size
+                    int textViewId = context.getResources().getIdentifier("alertTitle", "id", "android");
+                    TextView tv = dialog.findViewById(textViewId);
+                    if (tv != null) {
+                        tv.setTextColor(Color.WHITE);
+                        tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+                    }
+
+                    // Message color & size
+                    TextView messageView = dialog.findViewById(android.R.id.message);
+                    if (messageView != null) {
+                        messageView.setTextColor(Color.WHITE);
+                        messageView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+                    }
+
+                    // Button color
+                    Button positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+                    if (positiveButton != null) {
+                        positiveButton.setTextColor(Color.YELLOW);
+                    }
+                });
+
+                dialog.show();
+
+                hasShownToast = true;
             }
+
+
 
             if (routeList.size() < 20) {
 
