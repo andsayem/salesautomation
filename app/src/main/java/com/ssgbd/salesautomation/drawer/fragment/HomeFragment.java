@@ -486,8 +486,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                     @Override
                     public void onSuccess(String result) {
                         pd.dismiss();
-
-                       // Log.e("<d>",result+"<<");
+                        Log.e("MainActivity", "Sayem------------------------");
+                        Log.e("<d>",result+"<<");
                         try {
                             JSONObject jsonObject1 = new JSONObject(result);
                             JSONObject dashBoardObject = jsonObject1.getJSONObject("dashboard");
