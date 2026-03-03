@@ -94,6 +94,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             txt_today_achievement_percent_value;
     TextView txt_monthly_target_qty, txt_monthly_target_value, txt_monthly_achievement_qty, txt_monthly_achievement_value,
             txt_monthly_achievement_percent_qty, txt_monthly_achievement_percent_value;
+    TextView txt_previous_target_qty,
+            txt_previous_target_value,
+            txt_previous_achievement_qty,
+            txt_previous_achievement_value,
+            txt_previous_achievement_percent_qty,
+            txt_previous_achievement_percent_value;
 
     TextView txt_gls_target_qty, txt_gls_target_value, txt_gls_achievement_qty,
             txt_gls_achievement_value, txt_gls_achievement_percent_qty,
@@ -328,7 +334,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         txt_monthly_achievement_percent_qty = (TextView) rootView.findViewById(R.id.txt_monthly_achievement_percent_qty);
         txt_monthly_achievement_percent_value = (TextView) rootView.findViewById(R.id.txt_monthly_achievement_percent_value);
 
+        txt_previous_target_qty = (TextView) rootView.findViewById(R.id.txt_previous_target_qty);
+        txt_previous_target_value = (TextView) rootView.findViewById(R.id.txt_previous_target_value);
 
+        txt_previous_achievement_qty = (TextView) rootView.findViewById(R.id.txt_previous_achievement_qty);
+        txt_previous_achievement_value = (TextView) rootView.findViewById(R.id.txt_previous_achievement_value);
+
+        txt_previous_achievement_percent_qty = (TextView) rootView.findViewById(R.id.txt_previous_achievement_percent_qty);
+        txt_previous_achievement_percent_value = (TextView) rootView.findViewById(R.id.txt_previous_achievement_percent_value);
         //txt_gls_target_qty,txt_gls_target_value,txt_gls_achievement_qty,
         //txt_gls_achievement_value,txt_gls_achievement_percent_qty,
         //txt_gls_achievement_percent_value;
@@ -512,6 +525,17 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                             txt_monthly_achievement_percent_qty.setText(dashBoardObject.getString("monthly_strike_rate_qty"));
                             txt_monthly_achievement_percent_value.setText(dashBoardObject.getString("monthly_strike_rate_value"));
                             fan_text_achivement.setText(dashBoardObject.getString("monthly_fan_strike_rate_value"));
+                            // Previous Month
+
+                            txt_previous_target_qty.setText(dashBoardObject.getString("prev_monthly_target_qty"));
+                            txt_previous_target_value.setText(dashBoardObject.getString("prev_monthly_target"));
+
+                            txt_previous_achievement_qty.setText(dashBoardObject.getString("prev_monthly_achivement_qty"));
+                            txt_previous_achievement_value.setText(dashBoardObject.getString("prev_monthly_achivement_value"));
+
+                            txt_previous_achievement_percent_qty.setText(dashBoardObject.getString("prev_monthly_strike_rate_qty"));
+                            txt_previous_achievement_percent_value.setText(dashBoardObject.getString("prev_monthly_strike_rate_value"));
+
 
                             float tar=0;
                             float del =0;

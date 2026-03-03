@@ -861,6 +861,8 @@
                                 android:background="@drawable/layoutborder"
                                 android:orientation="vertical">
 
+                                <!-- ================= MONTHLY SECTION ================= -->
+
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -889,12 +891,10 @@
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
                                         android:gravity="center"
-                                        android:text="Value iiii"
-
+                                        android:text="Value "
                                         android:textColor="@color/colorWhite"
                                         android:textStyle="bold"
                                         android:visibility="gone" />
-
                                 </LinearLayout>
 
                                 <View
@@ -902,11 +902,11 @@
                                     android:layout_height="1px"
                                     android:background="@color/colorWhite" />
 
+                                <!-- Target -->
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="@dimen/margin_10dp"
-                                    android:background="#009688"
                                     android:padding="@dimen/margin_5dp">
 
                                     <TextView
@@ -921,7 +921,6 @@
                                         android:layout_width="0dp"
                                         android:layout_height="wrap_content"
                                         android:layout_weight=".7"
-                                        android:text=""
                                         android:textColor="@color/colorWhite" />
 
                                     <TextView
@@ -930,10 +929,8 @@
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
                                         android:gravity="center"
-                                        android:text=""
                                         android:textColor="@color/colorWhite"
                                         android:visibility="gone" />
-
                                 </LinearLayout>
 
                                 <View
@@ -941,11 +938,11 @@
                                     android:layout_height="1px"
                                     android:background="@color/colorWhite" />
 
+                                <!-- Achievement -->
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="@dimen/margin_10dp"
-                                    android:background="#009688"
                                     android:padding="@dimen/margin_5dp">
 
                                     <TextView
@@ -960,7 +957,6 @@
                                         android:layout_width="0dp"
                                         android:layout_height="wrap_content"
                                         android:layout_weight=".7"
-                                        android:text=""
                                         android:textColor="@color/colorWhite" />
 
                                     <TextView
@@ -969,10 +965,8 @@
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
                                         android:gravity="center"
-                                        android:text=""
                                         android:textColor="@color/colorWhite"
                                         android:visibility="gone" />
-
                                 </LinearLayout>
 
                                 <View
@@ -980,11 +974,11 @@
                                     android:layout_height="1px"
                                     android:background="@color/colorWhite" />
 
+                                <!-- Achievement % -->
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="@dimen/margin_10dp"
-                                    android:background="#009688"
                                     android:padding="@dimen/margin_5dp">
 
                                     <TextView
@@ -999,7 +993,6 @@
                                         android:layout_width="0dp"
                                         android:layout_height="wrap_content"
                                         android:layout_weight=".7"
-                                        android:text=""
                                         android:textColor="@color/colorWhite" />
 
                                     <TextView
@@ -1008,11 +1001,157 @@
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
                                         android:gravity="center"
-                                        android:text=""
                                         android:textColor="@color/colorWhite"
                                         android:visibility="gone" />
-
                                 </LinearLayout>
+
+                                <!-- ================= PREVIOUS MONTH SECTION ================= -->
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="2dp"
+                                    android:layout_marginTop="8dp"
+                                    android:background="@color/colorWhite" />
+
+                                <!-- Header -->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="@dimen/margin_10dp"
+                                    android:padding="@dimen/margin_5dp">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1.3"
+                                        android:text="Previous Month"
+                                        android:textColor="@color/colorWhite"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight=".7"
+                                        android:text="Qty"
+                                        android:textColor="@color/colorWhite"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:id="@+id/txt_previousvaluheder"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:text="Value"
+                                        android:textColor="@color/colorWhite"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1px"
+                                    android:background="@color/colorWhite" />
+
+                                <!-- Previous Target -->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="@dimen/margin_10dp"
+                                    android:padding="@dimen/margin_5dp">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1.3"
+                                        android:text="Target"
+                                        android:textColor="@color/colorWhite" />
+
+                                    <TextView
+                                        android:id="@+id/txt_previous_target_qty"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight=".7"
+                                        android:textColor="@color/colorWhite" />
+
+                                    <TextView
+                                        android:id="@+id/txt_previous_target_value"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:textColor="@color/colorWhite" />
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1px"
+                                    android:background="@color/colorWhite" />
+
+                                <!-- Previous Achievement -->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="@dimen/margin_10dp"
+                                    android:padding="@dimen/margin_5dp">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1.3"
+                                        android:text="Achievement"
+                                        android:textColor="@color/colorWhite" />
+
+                                    <TextView
+                                        android:id="@+id/txt_previous_achievement_qty"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight=".7"
+                                        android:textColor="@color/colorWhite" />
+
+                                    <TextView
+                                        android:id="@+id/txt_previous_achievement_value"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:textColor="@color/colorWhite" />
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1px"
+                                    android:background="@color/colorWhite" />
+
+                                <!-- Previous Achievement % -->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="@dimen/margin_10dp"
+                                    android:padding="@dimen/margin_5dp">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1.3"
+                                        android:text="Achievement(%)"
+                                        android:textColor="@color/colorWhite" />
+
+                                    <TextView
+                                        android:id="@+id/txt_previous_achievement_percent_qty"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight=".7"
+                                        android:textColor="@color/colorWhite" />
+
+                                    <TextView
+                                        android:id="@+id/txt_previous_achievement_percent_value"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:textColor="@color/colorWhite" />
+                                </LinearLayout>
+
                             </LinearLayout>
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
