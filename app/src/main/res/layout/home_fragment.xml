@@ -889,7 +889,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
                                         android:gravity="center"
-                                        android:text="Value"
+                                        android:text="Value iiii"
 
                                         android:textColor="@color/colorWhite"
                                         android:textStyle="bold"
