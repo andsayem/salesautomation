@@ -1268,7 +1268,6 @@
 
 
                     <TextView
-
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.13"
@@ -1279,10 +1278,28 @@
                         android:textStyle="bold" />
                 </LinearLayout>
 
+                <LinearLayout
+                    android:id="@+id/linlay_depot_payment_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/drawer_item_hover"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/margin_10dp">
 
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.13"
+                        android:padding="10dp"
+                        android:text="Depot Payment"
+                        android:textColor="#606161"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
                 <View
-
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="#d2d2d2"

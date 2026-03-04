@@ -90,6 +90,7 @@ import com.ssgbd.salesautomation.gps.GPSTracker;
 //import com.ssgbd.salesautomation.qr.Qrc_ScannerBarcodeActivity;
 //import com.ssgbd.salesautomation.live.LocationForegroundService;
 import com.ssgbd.salesautomation.report.AttendanceReportFragmentSsforce;
+import com.ssgbd.salesautomation.report.DeportPaymentReportFragment;
 import com.ssgbd.salesautomation.report.FoActivityReportFragment;
 import com.ssgbd.salesautomation.report.bundle.BundleOfferReportFragment;
 import com.ssgbd.salesautomation.report.fanreplace.FanQCListFragment;
@@ -799,6 +800,11 @@ public class DrawerMain extends AppCompatActivity implements FragmentDrawer.Frag
               Intent foforecastremark = new Intent(context, FOForecastWebRemark.class);
               startActivity(foforecastremark);
 
+                    break;
+
+                case 68:
+                    fragment = new DeportPaymentReportFragment();
+                    title = getString(R.string.title_text);
                     break;
 
                 default:

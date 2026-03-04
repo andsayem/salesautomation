@@ -1,0 +1,83 @@
+<HorizontalScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:id="@+id/item_depot_payment_root"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@android:color/white"
+        android:padding="8dp"
+        android:layout_marginBottom="2dp"
+        android:elevation="1dp">
+
+        <TextView
+            android:id="@+id/txt_point"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Point Name"
+            android:textSize="14sp"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/txt_sap"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="SAP Code"
+            android:textSize="14sp"
+            android:textColor="#444444" />
+
+        <TextView
+            android:id="@+id/txt_collection_type"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Collection Type"
+            android:textSize="14sp"
+            android:textColor="#444444" />
+
+        <TextView
+            android:id="@+id/txt_amount"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Amount"
+            android:textSize="14sp"
+            android:textColor="#444444" />
+
+        <TextView
+            android:id="@+id/txt_payment_type"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Payment Type"
+            android:textSize="14sp"
+            android:textColor="#444444" />
+
+        <TextView
+            android:id="@+id/txt_date"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:textSize="14sp"
+            android:textColor="#444444" />
+
+        <TextView
+            android:id="@+id/txt_ack_status"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="Ack Status"
+            android:textSize="14sp"
+            android:textColor="#444444" />
+
+        <TextView
+            android:id="@+id/txt_bank_slip"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Bank Slip"
+            android:textSize="14sp"
+            android:textColor="@android:color/holo_blue_dark"
+            android:clickable="true"
+            android:focusable="true" />
+    </LinearLayout>
+</HorizontalScrollView>
