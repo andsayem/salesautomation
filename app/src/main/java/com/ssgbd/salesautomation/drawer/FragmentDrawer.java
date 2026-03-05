@@ -107,7 +107,7 @@ public class FragmentDrawer extends Fragment implements View.OnClickListener {
     private LinearLayout linlay_change_password, linlay_help_line,linlay_online_exam,linlay_catalogue,linlay_drawer_leave, linlay_visit_frequency_report, linlay_Logout, linlay_drawer_home, linlay_drawer_visit, linlay_all_order, linlay_todays_order, linlay_drawer_ordermanage,linlay_drawer_smart_ordermanage, linlay_drawer_attendance,
             linlay_drawer_utility, linlay_drawer_retailermanage,  linlay_drawer_retailer_ledger;
     LinearLayout linlay_retailer_layout,linlay_drawer_direct_ordermanage,linlay_share_feedback,linlay_drawer_bundle_offer,linlay_drawer_fan_qc, linlay_drawer_return_change, linlay_drawer_return_change_report, linlay_drawer_westage, linlay_drawer_stocklist, linlay_drawer_new_retailer, linlay_drawer_retailer_status,linlay_drawer_retailer_status_new;
-    LinearLayout linlay_drawer_order_report, linlay_drawer_manage_requisition,linlay_drawer_order_visit_offline, linlay_order_report_layout, linlay_order_report, linlay_order_vs_delever, linlay_depot_payment_list , linlay_drawer_visit_report, linlay_drawer_attendance_report;
+    LinearLayout linlay_drawer_order_report, linlay_drawer_manage_requisition,linlay_drawer_order_visit_offline, linlay_order_report_layout, linlay_order_report, linlay_order_vs_delever, linlay_depot_payment_list , linlay_product_requisition_report_list,  linlay_drawer_visit_report, linlay_drawer_attendance_report;
     TextView txt_user_name, txt_user_division, txt_user_point, txt_user_designation,txt_indicator_forecast, txt_indicator, txt_app_version, txt_indicator_orderreport,txt_indicator_returnchangereport, txt_indicator_returnchangereport_policy;
     View view_retailer, view_report, view_repor1t;
     RelativeLayout nav_header_container;
@@ -400,6 +400,11 @@ public class FragmentDrawer extends Fragment implements View.OnClickListener {
         linlay_depot_payment_list = (LinearLayout) v.findViewById(R.id.linlay_depot_payment_list);
         linlay_depot_payment_list.setOnClickListener(this);
 
+        //linlay_product_requisition_report_list
+
+        linlay_product_requisition_report_list = (LinearLayout) v.findViewById(R.id.linlay_product_requisition_report_list);
+        linlay_product_requisition_report_list.setOnClickListener(this);
+
 
         linlay_drawer_visit_report = (LinearLayout) v.findViewById(R.id.linlay_drawer_visit_report);
         linlay_drawer_visit_report.setOnClickListener(this);
@@ -652,6 +657,9 @@ public class FragmentDrawer extends Fragment implements View.OnClickListener {
                 break;
             case R.id.linlay_depot_payment_list:
                 showTabItem(68, "Deport Payment");
+                break;
+            case R.id.linlay_product_requisition_report_list:
+                showTabItem(69, "Product Requisition Report");
                 break;
 
             case R.id.linlay_drawer_visit_report:

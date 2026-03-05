@@ -92,6 +92,7 @@ import com.ssgbd.salesautomation.gps.GPSTracker;
 import com.ssgbd.salesautomation.report.AttendanceReportFragmentSsforce;
 import com.ssgbd.salesautomation.report.DeportPaymentReportFragment;
 import com.ssgbd.salesautomation.report.FoActivityReportFragment;
+import com.ssgbd.salesautomation.report.ProductRequisitionReportFragment;
 import com.ssgbd.salesautomation.report.bundle.BundleOfferReportFragment;
 import com.ssgbd.salesautomation.report.fanreplace.FanQCListFragment;
 import com.ssgbd.salesautomation.report.order.SKUWiseReportFragment;
@@ -804,6 +805,10 @@ public class DrawerMain extends AppCompatActivity implements FragmentDrawer.Frag
 
                 case 68:
                     fragment = new DeportPaymentReportFragment();
+                    title = getString(R.string.title_text);
+                    break;
+                case 69:
+                    fragment = new ProductRequisitionReportFragment();
                     title = getString(R.string.title_text);
                     break;
 

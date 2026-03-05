@@ -859,6 +859,29 @@ public String jsonRerurnList(String userId,String globalCompanyId,String fromdat
     }
 
 
+    public String jsonProductRequisition(String userId,String fromDate,String toDate , String pg_type){
+        String requestBody = "";
+        try {
+            JSONObject jsonBody = new JSONObject();
+            JSONObject jsonPart = new JSONObject();
+
+            jsonPart.put("foid", 6382);
+            jsonPart.put("from_date", fromDate);
+            jsonPart.put("to_date", toDate);
+            jsonPart.put("pg_type", pg_type);
+
+            jsonBody.put("info",jsonPart);
+            requestBody = jsonBody.toString();
+
+
+        }catch (JSONException je){
+
+        }
+        Log.e("<<>>",requestBody+"");
+        return requestBody;
+    }
+
+
     public String jsonOrderReport(String userId,String globalid,String fromDate,String toDate,String routeId){
         String requestBody = "";
         try {

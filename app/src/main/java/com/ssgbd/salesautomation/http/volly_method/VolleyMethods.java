@@ -190,7 +190,7 @@ public class VolleyMethods {
 //    }
 
         public void sendRequestToServer2(final Context context, String URL, final String requestBoddy, final VolleyCallBack callback){
-
+               Log.e("url>>",URL+"");
             StringRequest stringRequest = new StringRequest(Request.Method.POST, URL , new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
