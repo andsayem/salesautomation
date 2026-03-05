@@ -1,168 +1,108 @@
 package com.ssgbd.salesautomation.dtos;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProductRequisitionDTO {
 
-    private String catName;
-    private String name;
-    private String sapCode;
-    private int reqDetId;
-    private String cancelReason;
-    private String reqStatus;
-    private int catId;
-    private int productId;
-    private String reqQty;
-    private String reqValue;
-    private String billingQty;
-    private double billingValue;
-    private String mainReqQty;
-    private String approvedQty;
-    private String allReqDownQty;
-    private double allReqDownValue;
-    private String allFreeDownQty;
-    private String reqDownQty;
-    private double reqDownValue;
-    private String freeDownQty;
-    private double freeDownValue;
-    private String inTranQty;
-    private String inTranValue;
-    private String receiveQty;
-    private double receiveValue;
-    private int reqId;
-    private String reqNo;
-    private int pointId;
-    private String reqDate;
+    private int sl;
     private String pointName;
-    private int pointSapCode;
-    private int businessTypeId;
-    private int isDepot;
-    private int isDealer;
-    private int targetQty;
-    private int targetValue;
-    private String reqQtyAlt;
+    private String sapCode;
+    private String catName;        // PG Name
+    private String productCode;
+    private String productName;
+    private double targetQty;
+    private double targetValue;
+    private double reqQty;
+    private double reqValue;
+    private double billedQty;
+    private double billedValue;
+    private double freeDownQty;
 
-    private ArrayList<ReasonDTO> reasons = new ArrayList<>();
+    // Reasons per product
+    private List<ReasonDTO> reasons = new ArrayList<>();
 
-    public ProductRequisitionDTO() {
+    // Constructor
+    public ProductRequisitionDTO(int sl, String pointName, String sapCode,
+                                 String catName, String productCode, String productName,
+                                 double targetQty, double targetValue, double reqQty,
+                                 double reqValue, double billedQty, double billedValue,
+                                 double freeDownQty, List<ReasonDTO> reasons) {
+        this.sl = sl;
+        this.pointName = pointName;
+        this.sapCode = sapCode;
+        this.catName = catName;
+        this.productCode = productCode;
+        this.productName = productName;
+        this.targetQty = targetQty;
+        this.targetValue = targetValue;
+        this.reqQty = reqQty;
+        this.reqValue = reqValue;
+        this.billedQty = billedQty;
+        this.billedValue = billedValue;
+        this.freeDownQty = freeDownQty;
+        this.reasons = reasons;
     }
 
-    // ==============================
-    // Getter and Setter
-    // ==============================
+    // Empty constructor
+    public ProductRequisitionDTO() {}
 
-    public String getCatName() { return catName; }
-    public void setCatName(String catName) { this.catName = catName; }
-
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-
-    public String getSapCode() { return sapCode; }
-    public void setSapCode(String sapCode) { this.sapCode = sapCode; }
-
-    public int getReqDetId() { return reqDetId; }
-    public void setReqDetId(int reqDetId) { this.reqDetId = reqDetId; }
-
-    public String getCancelReason() { return cancelReason; }
-    public void setCancelReason(String cancelReason) { this.cancelReason = cancelReason; }
-
-    public String getReqStatus() { return reqStatus; }
-    public void setReqStatus(String reqStatus) { this.reqStatus = reqStatus; }
-
-    public int getCatId() { return catId; }
-    public void setCatId(int catId) { this.catId = catId; }
-
-    public int getProductId() { return productId; }
-    public void setProductId(int productId) { this.productId = productId; }
-
-    public String getReqQty() { return reqQty; }
-    public void setReqQty(String reqQty) { this.reqQty = reqQty; }
-
-    public String getReqValue() { return reqValue; }
-    public void setReqValue(String reqValue) { this.reqValue = reqValue; }
-
-    public String getBillingQty() { return billingQty; }
-    public void setBillingQty(String billingQty) { this.billingQty = billingQty; }
-
-    public double getBillingValue() { return billingValue; }
-    public void setBillingValue(double billingValue) { this.billingValue = billingValue; }
-
-    public String getMainReqQty() { return mainReqQty; }
-    public void setMainReqQty(String mainReqQty) { this.mainReqQty = mainReqQty; }
-
-    public String getApprovedQty() { return approvedQty; }
-    public void setApprovedQty(String approvedQty) { this.approvedQty = approvedQty; }
-
-    public String getAllReqDownQty() { return allReqDownQty; }
-    public void setAllReqDownQty(String allReqDownQty) { this.allReqDownQty = allReqDownQty; }
-
-    public double getAllReqDownValue() { return allReqDownValue; }
-    public void setAllReqDownValue(double allReqDownValue) { this.allReqDownValue = allReqDownValue; }
-
-    public String getAllFreeDownQty() { return allFreeDownQty; }
-    public void setAllFreeDownQty(String allFreeDownQty) { this.allFreeDownQty = allFreeDownQty; }
-
-    public String getReqDownQty() { return reqDownQty; }
-    public void setReqDownQty(String reqDownQty) { this.reqDownQty = reqDownQty; }
-
-    public double getReqDownValue() { return reqDownValue; }
-    public void setReqDownValue(double reqDownValue) { this.reqDownValue = reqDownValue; }
-
-    public String getFreeDownQty() { return freeDownQty; }
-    public void setFreeDownQty(String freeDownQty) { this.freeDownQty = freeDownQty; }
-
-    public double getFreeDownValue() { return freeDownValue; }
-    public void setFreeDownValue(double freeDownValue) { this.freeDownValue = freeDownValue; }
-
-    public String getInTranQty() { return inTranQty; }
-    public void setInTranQty(String inTranQty) { this.inTranQty = inTranQty; }
-
-    public String getInTranValue() { return inTranValue; }
-    public void setInTranValue(String inTranValue) { this.inTranValue = inTranValue; }
-
-    public String getReceiveQty() { return receiveQty; }
-    public void setReceiveQty(String receiveQty) { this.receiveQty = receiveQty; }
-
-    public double getReceiveValue() { return receiveValue; }
-    public void setReceiveValue(double receiveValue) { this.receiveValue = receiveValue; }
-
-    public int getReqId() { return reqId; }
-    public void setReqId(int reqId) { this.reqId = reqId; }
-
-    public String getReqNo() { return reqNo; }
-    public void setReqNo(String reqNo) { this.reqNo = reqNo; }
-
-    public int getPointId() { return pointId; }
-    public void setPointId(int pointId) { this.pointId = pointId; }
-
-    public String getReqDate() { return reqDate; }
-    public void setReqDate(String reqDate) { this.reqDate = reqDate; }
+    // ===========================
+    // Getters & Setters
+    // ===========================
+    public int getSl() { return sl; }
+    public void setSl(int sl) { this.sl = sl; }
 
     public String getPointName() { return pointName; }
     public void setPointName(String pointName) { this.pointName = pointName; }
 
-    public int getPointSapCode() { return pointSapCode; }
-    public void setPointSapCode(int pointSapCode) { this.pointSapCode = pointSapCode; }
+    public String getSapCode() { return sapCode; }
+    public void setSapCode(String sapCode) { this.sapCode = sapCode; }
 
-    public int getBusinessTypeId() { return businessTypeId; }
-    public void setBusinessTypeId(int businessTypeId) { this.businessTypeId = businessTypeId; }
+    public String getCatName() { return catName; }
+    public void setCatName(String catName) { this.catName = catName; }
 
-    public int getIsDepot() { return isDepot; }
-    public void setIsDepot(int isDepot) { this.isDepot = isDepot; }
+    public String getProductCode() { return productCode; }
+    public void setProductCode(String productCode) { this.productCode = productCode; }
 
-    public int getIsDealer() { return isDealer; }
-    public void setIsDealer(int isDealer) { this.isDealer = isDealer; }
+    public String getProductName() { return productName; }
+    public void setProductName(String productName) { this.productName = productName; }
 
-    public int getTargetQty() { return targetQty; }
-    public void setTargetQty(int targetQty) { this.targetQty = targetQty; }
+    public double getTargetQty() { return targetQty; }
+    public void setTargetQty(double targetQty) { this.targetQty = targetQty; }
 
-    public int getTargetValue() { return targetValue; }
-    public void setTargetValue(int targetValue) { this.targetValue = targetValue; }
+    public double getTargetValue() { return targetValue; }
+    public void setTargetValue(double targetValue) { this.targetValue = targetValue; }
 
-    public String getReqQtyAlt() { return reqQtyAlt; }
-    public void setReqQtyAlt(String reqQtyAlt) { this.reqQtyAlt = reqQtyAlt; }
+    public double getReqQty() { return reqQty; }
+    public void setReqQty(double reqQty) { this.reqQty = reqQty; }
 
-    public ArrayList<ReasonDTO> getReasons() { return reasons; }
-    public void setReasons(ArrayList<ReasonDTO> reasons) { this.reasons = reasons; }
+    public double getReqValue() { return reqValue; }
+    public void setReqValue(double reqValue) { this.reqValue = reqValue; }
 
+    public double getBilledQty() { return billedQty; }
+    public void setBilledQty(double billedQty) { this.billedQty = billedQty; }
+
+    public double getBilledValue() { return billedValue; }
+    public void setBilledValue(double billedValue) { this.billedValue = billedValue; }
+
+    public double getFreeDownQty() { return freeDownQty; }
+    public void setFreeDownQty(double freeDownQty) { this.freeDownQty = freeDownQty; }
+
+    public List<ReasonDTO> getReasons() { return reasons; }
+    public void setReasons(List<ReasonDTO> reasons) { this.reasons = reasons; }
+
+    // ===========================
+    // Reason Helpers
+    // ===========================
+    public void addReasonQty(int reasonId, int qty) {
+        reasons.add(new ReasonDTO(reasonId, "", qty));
+    }
+
+    public int getReasonQty(int reasonId) {
+        for (ReasonDTO r : reasons) {
+            if (r.getId() == reasonId) return r.getDiductionQty();
+        }
+        return 0;
+    }
 }

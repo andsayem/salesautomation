@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="8dp">
+    android:padding="8dp"
+    android:background="#F5F6FA">
 
-    <!-- Filter Section -->
+    <!-- Date Filter Section -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,9 +18,11 @@
             android:layout_width="0dp"
             android:layout_height="45dp"
             android:layout_weight="1"
-            android:background="@drawable/filter_bg"
             android:gravity="center"
-            android:text="From Date"/>
+            android:text="From Date"
+            android:background="@drawable/filter_bg"
+            android:textStyle="bold"
+            android:textSize="12sp"/>
 
         <TextView
             android:id="@+id/txt_todate"
@@ -27,9 +30,11 @@
             android:layout_height="45dp"
             android:layout_weight="1"
             android:layout_marginStart="6dp"
-            android:background="@drawable/filter_bg"
             android:gravity="center"
-            android:text="To Date"/>
+            android:text="To Date"
+            android:background="@drawable/filter_bg"
+            android:textStyle="bold"
+            android:textSize="12sp"/>
 
         <TextView
             android:id="@+id/txt_search"
@@ -37,10 +42,12 @@
             android:layout_height="45dp"
             android:layout_weight="1"
             android:layout_marginStart="6dp"
-            android:background="@drawable/search_btn_bg"
             android:gravity="center"
             android:text="SEARCH"
-            android:textColor="#FFF"/>
+            android:background="@drawable/search_btn_bg"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="12sp"/>
     </LinearLayout>
 
     <!-- Total Count -->
@@ -49,38 +56,42 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Total: 0"/>
+        android:text="Total: 0"
+        android:textStyle="bold"
+        android:textSize="13sp"/>
 
-    <!-- Header -->
+    <!-- Header ScrollView -->
     <HorizontalScrollView
         android:id="@+id/header_scroll"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:fillViewport="true">
 
         <LinearLayout
             android:id="@+id/header_container"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
             android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:background="#E1E5F2">
 
-            <!-- Example fixed columns -->
-            <TextView
-                android:layout_width="250dp"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="Product"
-                android:textStyle="bold"/>
+            <TextView android:layout_width="50dp" android:layout_height="match_parent" android:text="SL" android:gravity="center" android:textStyle="bold"/>
+            <TextView android:layout_width="150dp" android:layout_height="match_parent" android:text="Point Name" android:gravity="center" android:textStyle="bold"/>
+            <TextView android:layout_width="120dp" android:layout_height="match_parent" android:text="SAP Code" android:gravity="center" android:textStyle="bold"/>
+            <TextView android:layout_width="150dp" android:layout_height="match_parent" android:text="PG Name" android:gravity="center" android:textStyle="bold"/>
+            <TextView android:layout_width="120dp" android:layout_height="match_parent" android:text="Product Code" android:gravity="center" android:textStyle="bold"/>
+            <TextView android:layout_width="250dp" android:layout_height="match_parent" android:text="Product Name" android:gravity="center" android:textStyle="bold"/>
+            <TextView android:layout_width="120dp" android:layout_height="match_parent" android:text="Target Qty" android:gravity="center" android:textStyle="bold"/>
+            <TextView android:layout_width="150dp" android:layout_height="match_parent" android:text="Target Value" android:gravity="center" android:textStyle="bold"/>
+            <TextView android:layout_width="120dp" android:layout_height="match_parent" android:text="Req Qty" android:gravity="center" android:textStyle="bold"/>
+            <TextView android:layout_width="150dp" android:layout_height="match_parent" android:text="Req Value" android:gravity="center" android:textStyle="bold"/>
+            <TextView android:layout_width="120dp" android:layout_height="match_parent" android:text="Billed Qty" android:gravity="center" android:textStyle="bold"/>
+            <TextView android:layout_width="150dp" android:layout_height="match_parent" android:text="Billed Value" android:gravity="center" android:textStyle="bold"/>
 
-            <TextView
-                android:layout_width="150dp"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="SAP"
-                android:textStyle="bold"/>
-
-            <!-- Add dynamic reason columns here if needed -->
+            <LinearLayout
+                android:id="@+id/header_reason_container"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
         </LinearLayout>
     </HorizontalScrollView>
 
@@ -88,7 +99,5 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="4dp"/>
+        android:layout_height="match_parent"/>
 </LinearLayout>

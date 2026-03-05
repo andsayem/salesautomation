@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.HorizontalScrollView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +31,7 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
 public class ProductRequisitionReportFragment extends Fragment {
@@ -43,6 +46,7 @@ public class ProductRequisitionReportFragment extends Fragment {
     private ArrayList<ReasonDTO> reasonList = new ArrayList<>();
 
     private TextView txtFromDate, txtToDate, txtSearch, txtTotalCount;
+    private LinearLayout headerReasonContainer;
 
     private String FROMDATE, TODATE;
     private DatePickerDialog picker;
@@ -60,6 +64,7 @@ public class ProductRequisitionReportFragment extends Fragment {
         txtToDate = rootView.findViewById(R.id.txt_todate);
         txtSearch = rootView.findViewById(R.id.txt_search);
         txtTotalCount = rootView.findViewById(R.id.txt_total_count);
+        headerReasonContainer = rootView.findViewById(R.id.header_reason_container);
 
         adapter = new ProductRequisitionAdapter(reportList, reasonList, getActivity());
         recyclerView.setAdapter(adapter);
@@ -76,11 +81,7 @@ public class ProductRequisitionReportFragment extends Fragment {
         return rootView;
     }
 
-    // ===============================
-    // Initialize current month date
-    // ===============================
     private void initDate() {
-
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
 
@@ -94,11 +95,7 @@ public class ProductRequisitionReportFragment extends Fragment {
         txtToDate.setText(TODATE);
     }
 
-    // ===============================
-    // Date Picker
-    // ===============================
     private void showDatePicker(boolean isFrom) {
-
         Calendar cal = Calendar.getInstance();
 
         picker = new DatePickerDialog(getActivity(),
@@ -107,9 +104,7 @@ public class ProductRequisitionReportFragment extends Fragment {
                     Calendar selected = Calendar.getInstance();
                     selected.set(year, monthOfYear, dayOfMonth);
 
-                    SimpleDateFormat sdf =
-                            new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
-
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
                     String formattedDate = sdf.format(selected.getTime());
 
                     if (isFrom) {
@@ -128,14 +123,12 @@ public class ProductRequisitionReportFragment extends Fragment {
         picker.show();
     }
 
-    // ===============================
-    // API Call
-    // ===============================
     private void getReport(String fromDate, String toDate) {
 
         reportList.clear();
         reasonList.clear();
         adapter.notifyDataSetChanged();
+        headerReasonContainer.removeAllViews();
 
         final ProgressDialog pd = new ProgressDialog(getActivity());
         pd.setMessage("Loading...");
@@ -160,48 +153,62 @@ public class ProductRequisitionReportFragment extends Fragment {
                         Log.e("API_RESPONSE", result);
 
                         try {
-
                             JSONArray jsonArray = new JSONArray(result);
 
-                            // ========= Get Reasons from First Object =========
+                            // ========= Global reasons =========
                             if (jsonArray.length() > 0) {
-
-                                JSONArray reasons =
-                                        jsonArray.getJSONObject(0).optJSONArray("reasons");
-
+                                JSONArray reasons = jsonArray.getJSONObject(0).optJSONArray("reasons");
                                 if (reasons != null) {
                                     for (int j = 0; j < reasons.length(); j++) {
-
                                         JSONObject r = reasons.getJSONObject(j);
-
-                                        ReasonDTO reasonDTO = new ReasonDTO();
-                                        reasonDTO.setId(r.optInt("id"));
-                                        reasonDTO.setReason(r.optString("reason"));
-                                        reasonDTO.setDiductionQty(r.optInt("diductionQty"));
-
+                                        ReasonDTO reasonDTO = new ReasonDTO(
+                                                r.optInt("id"),
+                                                r.optString("reason"),
+                                                r.optInt("diductionQty")
+                                        );
                                         reasonList.add(reasonDTO);
+
+                                        // Add header TextView dynamically
+                                        TextView tv = new TextView(getActivity());
+                                        tv.setLayoutParams(new LinearLayout.LayoutParams(
+                                                LinearLayout.LayoutParams.WRAP_CONTENT,
+                                                LinearLayout.LayoutParams.MATCH_PARENT
+                                        ));
+                                        tv.setText(r.optString("reason"));
+                                        tv.setPadding(16, 0, 16, 0);
+                                        tv.setTextSize(12);
+                                        tv.setGravity(View.TEXT_ALIGNMENT_CENTER);
+                                        headerReasonContainer.addView(tv);
                                     }
                                 }
                             }
 
-                            // ========= Main Data Loop =========
+                            // ========= Parse each product row =========
                             for (int i = 0; i < jsonArray.length(); i++) {
-
                                 JSONObject obj = jsonArray.getJSONObject(i);
 
-                                ProductRequisitionDTO dto =
-                                        new ProductRequisitionDTO();
-
+                                ProductRequisitionDTO dto = new ProductRequisitionDTO();
                                 dto.setCatName(obj.optString("catName"));
-                                dto.setName(obj.optString("name"));
+                                dto.setProductName(obj.optString("name"));
                                 dto.setSapCode(obj.optString("sap_code"));
-                                dto.setReqQty(obj.optString("reqQty"));
-                                dto.setReqValue(obj.optString("reqValue"));
-                                dto.setBillingQty(obj.optString("billingQty"));
-                                dto.setBillingValue(obj.optDouble("billingValue"));
-                                dto.setReqStatus(obj.optString("req_status"));
+                                dto.setReqQty(obj.optDouble("reqQty", 0));
+                                dto.setReqValue(obj.optDouble("reqValue", 0));
+                                dto.setBilledQty(obj.optDouble("billingQty", 0));
+                                dto.setBilledValue(obj.optDouble("billingValue", 0));
                                 dto.setPointName(obj.optString("point_name"));
-                                dto.setReqDate(obj.optString("req_date"));
+                                dto.setFreeDownQty(obj.optDouble("free_down_qty", 0));
+
+                                // Product-level reasons
+                                JSONArray prodReasons = obj.optJSONArray("reasons");
+                                if (prodReasons != null) {
+                                    for (int k = 0; k < prodReasons.length(); k++) {
+                                        JSONObject r = prodReasons.getJSONObject(k);
+                                        dto.addReasonQty(
+                                                r.optInt("id"),
+                                                r.optInt("diductionQty")
+                                        );
+                                    }
+                                }
 
                                 reportList.add(dto);
                             }

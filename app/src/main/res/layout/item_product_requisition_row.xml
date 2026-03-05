@@ -3,71 +3,129 @@
     android:id="@+id/row_scroll"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:fillViewport="true"
-    android:scrollbars="none">
+    android:fillViewport="true">
 
     <LinearLayout
-        android:id="@+id/row_container"
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="4dp"
-        android:paddingBottom="4dp">
+        android:background="#FFFFFF"
+        android:padding="4dp">
 
-        <!-- Fixed Columns -->
         <TextView
-            android:id="@+id/txt_product"
-            android:layout_width="250dp"
+            android:id="@+id/txt_sl"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:textSize="12sp"
-            android:textColor="#000000"/>
+            android:gravity="center"
+            android:padding="8dp"
+            android:background="@drawable/cell_border"
+            android:textSize="12sp"/>
 
         <TextView
-            android:id="@+id/txt_sap"
+            android:id="@+id/txt_point_name"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:textSize="12sp"
-            android:textColor="#000000"/>
+            android:gravity="center"
+            android:padding="8dp"
+            android:background="@drawable/cell_border"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/txt_sap_code"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="8dp"
+            android:background="@drawable/cell_border"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/txt_pg_name"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="8dp"
+            android:background="@drawable/cell_border"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/txt_product_code"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="8dp"
+            android:background="@drawable/cell_border"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/txt_product_name"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="8dp"
+            android:background="@drawable/cell_border"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/txt_target_qty"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="8dp"
+            android:background="@drawable/cell_border"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/txt_target_value"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="8dp"
+            android:background="@drawable/cell_border"
+            android:textSize="12sp"/>
 
         <TextView
             android:id="@+id/txt_req_qty"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:textSize="12sp"
-            android:textColor="#000000"/>
+            android:gravity="center"
+            android:padding="8dp"
+            android:background="@drawable/cell_border"
+            android:textSize="12sp"/>
 
         <TextView
             android:id="@+id/txt_req_value"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:textSize="12sp"
-            android:textColor="#000000"/>
+            android:gravity="center"
+            android:padding="8dp"
+            android:background="@drawable/cell_border"
+            android:textSize="12sp"/>
 
         <TextView
-            android:id="@+id/txt_billing_qty"
+            android:id="@+id/txt_billed_qty"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:textSize="12sp"
-            android:textColor="#000000"/>
+            android:gravity="center"
+            android:padding="8dp"
+            android:background="@drawable/cell_border"
+            android:textSize="12sp"/>
 
         <TextView
-            android:id="@+id/txt_billing_value"
+            android:id="@+id/txt_billed_value"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:textSize="12sp"
-            android:textColor="#000000"/>
+            android:gravity="center"
+            android:padding="8dp"
+            android:background="@drawable/cell_border"
+            android:textSize="12sp"/>
 
-        <!-- Dynamic Reason Columns Container -->
+        <!-- Dynamic Reason Container -->
         <LinearLayout
             android:id="@+id/reason_container"
+            android:orientation="horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" />
+            android:layout_height="wrap_content"/>
+
     </LinearLayout>
 </HorizontalScrollView>

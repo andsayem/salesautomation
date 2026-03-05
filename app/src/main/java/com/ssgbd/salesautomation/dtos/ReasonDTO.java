@@ -6,42 +6,20 @@ public class ReasonDTO {
     private String reason;
     private int diductionQty;
 
-    public ReasonDTO() {
-    }
-
+    // Parameterized constructor
     public ReasonDTO(int id, String reason, int diductionQty) {
         this.id = id;
         this.reason = reason;
         this.diductionQty = diductionQty;
     }
 
-    // =====================
-    // Getter & Setter
-    // =====================
+    // Getters & Setters
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 
-    public int getId() {
-        return id;
-    }
+    public String getReason() { return reason; }
+    public void setReason(String reason) { this.reason = reason; }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-
-    public String getReason() {
-        return reason;
-    }
-
-    public void setReason(String reason) {
-        this.reason = reason;
-    }
-
-
-    public int getDiductionQty() {
-        return diductionQty;
-    }
-
-    public void setDiductionQty(int diductionQty) {
-        this.diductionQty = diductionQty;
-    }
+    public int getDiductionQty() { return diductionQty; }
+    public void setDiductionQty(int diductionQty) { this.diductionQty = diductionQty; }
 }
