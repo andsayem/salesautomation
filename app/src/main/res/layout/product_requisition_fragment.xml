@@ -6,7 +6,7 @@
     android:padding="8dp"
     android:background="#F5F6FA">
 
-    <!-- Date Filter Section -->
+    <!-- Filter Section -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,54 +50,11 @@
             android:textSize="12sp"/>
     </LinearLayout>
 
-    <!-- Total Count -->
-    <TextView
-        android:id="@+id/txt_total_count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Total: 0"
-        android:textStyle="bold"
-        android:textSize="13sp"/>
-
-    <!-- Header ScrollView -->
-    <HorizontalScrollView
-        android:id="@+id/header_scroll"
+    <!-- WebView -->
+    <WebView
+        android:id="@+id/webViewReport"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:fillViewport="true">
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"/>
 
-        <LinearLayout
-            android:id="@+id/header_container"
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="#E1E5F2">
-
-            <TextView android:layout_width="50dp" android:layout_height="match_parent" android:text="SL" android:gravity="center" android:textStyle="bold"/>
-            <TextView android:layout_width="150dp" android:layout_height="match_parent" android:text="Point Name" android:gravity="center" android:textStyle="bold"/>
-            <TextView android:layout_width="120dp" android:layout_height="match_parent" android:text="SAP Code" android:gravity="center" android:textStyle="bold"/>
-            <TextView android:layout_width="150dp" android:layout_height="match_parent" android:text="PG Name" android:gravity="center" android:textStyle="bold"/>
-            <TextView android:layout_width="120dp" android:layout_height="match_parent" android:text="Product Code" android:gravity="center" android:textStyle="bold"/>
-            <TextView android:layout_width="250dp" android:layout_height="match_parent" android:text="Product Name" android:gravity="center" android:textStyle="bold"/>
-            <TextView android:layout_width="120dp" android:layout_height="match_parent" android:text="Target Qty" android:gravity="center" android:textStyle="bold"/>
-            <TextView android:layout_width="150dp" android:layout_height="match_parent" android:text="Target Value" android:gravity="center" android:textStyle="bold"/>
-            <TextView android:layout_width="120dp" android:layout_height="match_parent" android:text="Req Qty" android:gravity="center" android:textStyle="bold"/>
-            <TextView android:layout_width="150dp" android:layout_height="match_parent" android:text="Req Value" android:gravity="center" android:textStyle="bold"/>
-            <TextView android:layout_width="120dp" android:layout_height="match_parent" android:text="Billed Qty" android:gravity="center" android:textStyle="bold"/>
-            <TextView android:layout_width="150dp" android:layout_height="match_parent" android:text="Billed Value" android:gravity="center" android:textStyle="bold"/>
-
-            <LinearLayout
-                android:id="@+id/header_reason_container"
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"/>
-        </LinearLayout>
-    </HorizontalScrollView>
-
-    <!-- RecyclerView -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 </LinearLayout>
