@@ -843,7 +843,7 @@ public String jsonRerurnList(String userId,String globalCompanyId,String fromdat
             JSONObject jsonBody = new JSONObject();
             JSONObject jsonPart = new JSONObject();
 
-            jsonPart.put("foid", 6382);
+            jsonPart.put("foid", userId);
             jsonPart.put("from_date", fromDate);
             jsonPart.put("to_date", toDate);
 
@@ -854,7 +854,7 @@ public String jsonRerurnList(String userId,String globalCompanyId,String fromdat
         }catch (JSONException je){
 
         }
-        //Log.e("<<>>",requestBody+"");
+         Log.e("<<>>",requestBody+"");
         return requestBody;
     }
 

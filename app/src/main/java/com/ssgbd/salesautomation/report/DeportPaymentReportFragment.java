@@ -127,12 +127,11 @@ public class DeportPaymentReportFragment extends Fragment {
         JsonRequestFormate jp = new JsonRequestFormate();
         vm.sendRequestToServer2(getActivity(),
                 getString(R.string.base_url) + "api/apps/depot-payment-list",
-                jp.jsonReportDeportPayment(SharePreference.getUserId(getActivity()), fromDate, toDate),
+                jp.jsonReportDeportPayment( SharePreference.getUserLoginId(getActivity()), fromDate, toDate),
                 new VolleyCallBack() {
                     @Override
                     public void onSuccess(String result) {
 
-                        Log.e("result>>>>>",result+"");
                         pd.dismiss();
                         try {
                             JSONObject jsonObject = new JSONObject(result);
@@ -143,11 +142,11 @@ public class DeportPaymentReportFragment extends Fragment {
                                 dto.setPointName(obj.optString("point_name", ""));
                                 dto.setSapCode(Integer.parseInt(obj.optString("sap_code", "")));
                                 dto.setCollectionType(obj.optString("collection_type", ""));
-                                dto.setAmount(Double.parseDouble(obj.optString("amount", "0")));
+                                dto.setAmount(Double.parseDouble(obj.optString("trans_amount", "0")));
                                 dto.setPaymentType(obj.optString("payment_type", ""));
                                 dto.setDate(obj.optString("trans_date", ""));
                                 dto.setAckStatus(obj.optString("ack_status", ""));
-                                dto.setBankSlip(obj.optString("bank_deposit_slip", ""));
+                                dto.setBankSlipUrl(obj.optString("bank_deposit_slip", "")); // কোনো public/base URL add করবেন না
                                 reportList.add(dto);
                             }
 

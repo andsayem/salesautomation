@@ -76,7 +76,4 @@ public class DeportPaymentDTO {
     public void setBankSlipUrl(String bankSlipUrl) {
         this.bankSlipUrl = bankSlipUrl;
     }
-
-    public void setBankSlip(String bankSlip) {
-    }
 }

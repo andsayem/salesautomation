@@ -2,7 +2,10 @@ package com.ssgbd.salesautomation.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,15 +52,14 @@ public class DeportPaymentReportAdapter extends RecyclerView.Adapter<DeportPayme
         holder.txtAckStatus.setText(item.getAckStatus());
         holder.txtBankSlip.setText("View Slip");
 
+
+        // Set clickable bank slip text
         holder.txtBankSlip.setOnClickListener(v -> {
             String url = item.getBankSlipUrl();
-            if (url != null && !url.isEmpty()) {
-                try {
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                    context.startActivity(browserIntent);
-                } catch (Exception e) {
-                    Toast.makeText(context, "Unable to open URL", Toast.LENGTH_SHORT).show();
-                }
+            Log.d("BankSlipURL", item.getBankSlipUrl());
+            if(url != null && !url.isEmpty()) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                context.startActivity(browserIntent);
             }
         });
     }

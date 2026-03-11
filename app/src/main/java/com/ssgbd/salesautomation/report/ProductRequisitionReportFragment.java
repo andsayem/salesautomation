@@ -134,7 +134,7 @@ public class ProductRequisitionReportFragment extends Fragment {
 
     private void getReport(String fromDate, String toDate) {
         try {
-            String userId = "6382"; // বা SharePreference.getUserId(getActivity());
+            String userId =  SharePreference.getUserLoginId(getActivity()) ;  SharePreference.getUserId(getActivity());
             String url = getString(R.string.base_url) + "api/apps/product-requisition-report-list";
 
             // JSON তৈরি
