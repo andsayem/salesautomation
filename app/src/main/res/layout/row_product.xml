@@ -29,7 +29,7 @@ android:layout_margin="5dp"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1.6"
-            android:text="Product Name dfsddsfsddsfsddsfsdfs sdh dhdsfj f f hfdshfj dfhsdfjd hdhdfjyfjhdfhjd fhdf  hdsjf f fhjd(fsdhsdjjhdfhj887878787)sdjfjhsjdhfjhdsfhdsfjhjh " />
+            android:text="Product Name" />
 
         <Button
             android:id="@+id/row_product_select"

@@ -36,7 +36,9 @@
     <string name="location_text1">Salesautomation app collecting your location for track your current position,visiting area and to enhance your sales area.\nThis app collects location data to enable your location info
     even when the app is closed or not in use.\n Sales automation app require storage permission also.</string>
 
-    <string name="base_url">https://ssforce.ssgbd.com/</string>
+<!--    <string name="base_url">https://ssforce.ssgbd.com/</string>-->
+
+    <string name="base_url">https://testforce.ssgbd.com/</string>
 
 <!--<string name="base_url">https://ssforcenewdev.ssgbd.com/</string>-->
 <!--<string name="base_url">https://trainingforce.ssgbd.com/</string>-->
