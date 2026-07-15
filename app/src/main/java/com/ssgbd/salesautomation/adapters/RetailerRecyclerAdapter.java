@@ -153,7 +153,9 @@ public class RetailerRecyclerAdapter extends RecyclerView.Adapter<RetailerRecycl
                 builder.setTitle("⚠ সতর্কবার্তা");
                 builder.setMessage("এই রুটে ২০টির কম রিটেলার রয়েছে।\n\nবর্তমানে আছে: "
                         + routeList.size()
-                        + "\n\nঅনুগ্রহ করে রিটেলার সংখ্যা বাড়ান, তারপর অর্ডার ও ভিজিট করতে পারেন।");
+                        + "\n\nঅনুগ্রহ করে রিটেলার সংখ্যা বাড়ান।");
+
+                // অনুগ্রহ করে রিটেলার সংখ্যা বাড়ান, তারপর অর্ডার ও ভিজিট করতে পারেন।
 
                 builder.setCancelable(false);
 
@@ -195,8 +197,8 @@ public class RetailerRecyclerAdapter extends RecyclerView.Adapter<RetailerRecycl
             }
 
 
-
-            if (routeList.size() < 20) {
+            //  reteiler count
+            if (routeList.size() < 1) {
 
                 // 20 or more → hide all buttons
                 holder.row_call_order.setVisibility(View.GONE);
@@ -265,10 +267,22 @@ public class RetailerRecyclerAdapter extends RecyclerView.Adapter<RetailerRecycl
 
                         AlertDialog.Builder builder = new AlertDialog.Builder(context);
                         builder.setTitle("দূরত্ব সতর্কতা 🗺️");
-                        builder.setMessage("আপনি এই মুহূর্তে retailer থেকে " + distanceStr + " দূরে আছেন।\n"
-                                + "দুরত্ব বেশি হওয়ায় এখনই order করা সম্ভব নয়।\n");
+                        builder.setMessage("আপনি এই মুহূর্তে Retailer থেকে " + distanceStr + " দূরে আছেন।\n" );
+//                        builder.setMessage("আপনি এই মুহূর্তে Retailer থেকে " + distanceStr + " দূরে আছেন।\n"
+//                                + "দুরত্ব বেশি হওয়ায় এখনই order করা সম্ভব নয়।\n");
                                 //+ "আপনি চাইলে নিচের বাটন দিয়ে retailer-এর location ম্যাপে দেখতে পারেন।");
-                        builder.setPositiveButton("ঠিক আছে", (dialog, which) -> dialog.dismiss());
+                        //builder.setPositiveButton("ঠিক আছে", (dialog, which) -> dialog.dismiss());
+                        builder.setPositiveButton("ঠিক আছে", (dialog, which) -> {
+                            Intent intent = new Intent(context, OrderActivity.class);
+                            intent.putExtra("retailerId", itemFeed.getRetailer_id());
+                            intent.putExtra("retailerName", itemFeed.getRetailer_name());
+                            intent.putExtra("poient_id", itemFeed.getPoint_id());
+                            intent.putExtra("from", "visit");
+                            intent.putExtra("is_call_order", false);
+                            context.startActivity(intent);
+
+                            dialog.dismiss();
+                        });
                         // View on Map button
                         builder.setNeutralButton("View on Map", (dialog, which) -> {
 
