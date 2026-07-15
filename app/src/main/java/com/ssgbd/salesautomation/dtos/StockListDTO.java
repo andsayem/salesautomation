@@ -10,6 +10,7 @@ public class StockListDTO {
     private String productName = "";
     private String stockQty = "";
     private String stockValue = "";
+    private String stockDemand = "";
 
     public String getProductid() {
         return productid;
@@ -43,6 +44,14 @@ public class StockListDTO {
         this.stockValue = stockValue;
     }
 
+
+    public String getStockDemand() {
+        return stockDemand;
+    }
+
+    public void setStockDemand(String stockDemand) {
+        this.stockDemand = stockDemand;
+    }
     @Override
     public String toString() {
         return "StockListDTO{" +
@@ -50,6 +59,7 @@ public class StockListDTO {
                 ", productName='" + productName + '\'' +
                 ", stockQty='" + stockQty + '\'' +
                 ", stockValue='" + stockValue + '\'' +
+                ", stockDemand='" + stockDemand + '\'' +
                 '}';
     }
 }

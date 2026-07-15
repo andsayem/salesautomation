@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@drawable/bg_dialog">
+
+    <!-- Header -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Stock Demand"
+        android:textColor="@color/colorPrimary"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="18dp"
+        android:gravity="center"
+        android:text="Submit Product Stock Demand"
+        android:textColor="#757575"
+        android:textSize="13sp" />
+
+    <!-- Information -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/bg_info"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ℹ"
+            android:textColor="#FF9800"
+            android:textSize="22sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:text="প্রতি প্রোডাক্টের জন্য মাসে মাত্র একবার স্টক ডিমান্ড করা যাবে। অনুগ্রহ করে সঠিক পরিমাণ উল্লেখ করুন।"
+            android:textColor="#5D4037"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+    <!-- Product Card -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/bg_card"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/txtProductName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Product Name"
+            android:textColor="#212121"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtCurrentStock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Current Stock : 0"
+            android:textColor="#2E7D32"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!-- Demand -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Demand Quantity"
+        android:textColor="#424242"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnMinus"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:backgroundTint="#E53935"
+            android:text="-"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="22sp" />
+
+        <EditText
+            android:id="@+id/edtDemandQty"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_edittext"
+            android:gravity="center"
+            android:hint="Enter Quantity"
+            android:inputType="number"
+            android:padding="10dp"
+            android:textColor="#212121"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnPlus"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:backgroundTint="#43A047"
+            android:text="+"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="22sp" />
+
+    </LinearLayout>
+
+    <!-- Remarks -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:text="Remarks"
+        android:textColor="#424242"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edtRemarks"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_edittext"
+        android:gravity="top|start"
+        android:hint="Write remarks (Optional)"
+        android:inputType="textMultiLine"
+        android:padding="12dp"
+        android:textColor="#212121" />
+
+    <!-- Buttons -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="110dp"
+            android:layout_height="48dp"
+            android:backgroundTint="#E0E0E0"
+            android:text="Cancel"
+            android:textAllCaps="false"
+            android:textColor="#424242" />
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="110dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="12dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="Submit"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+</LinearLayout>

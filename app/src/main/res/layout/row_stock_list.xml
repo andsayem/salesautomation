@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-
-    android:id="@+id/card_view"
+    android:clickable="true"
+    android:foreground="?attr/selectableItemBackground"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
-    android:layout_margin="@dimen/margin_5dp"
-
+    android:layout_margin="5dp"
     card_view:cardCornerRadius="4dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="70dp"
         android:orientation="horizontal"
-        android:padding="@dimen/margin_5dp">
-
-
+        android:gravity="center_vertical"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="12dp">
 
         <TextView
             android:id="@+id/row_product_name"
@@ -33,17 +31,33 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="" />
+            android:gravity="center"/>
 
         <TextView
             android:id="@+id/row_product_value"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.5"
-            android:gravity="center"
-            android:text="" />
+            android:layout_weight="1.2"
+            android:gravity="center"/>
 
+        <Button
+            android:id="@+id/row_product_select"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1.2"
+            android:text="Add QTY"
+            android:textAllCaps="false"/>
+
+        <TextView
+            android:id="@+id/txtStockDemand"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1.2"
+            android:gravity="center"
+            android:visibility="gone"
+            android:textStyle="bold"
+            android:textColor="@android:color/holo_green_dark"/>
 
     </LinearLayout>
+
 </androidx.cardview.widget.CardView>

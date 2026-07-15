@@ -38,9 +38,9 @@
 
 <!--    <string name="base_url">https://ssforce.ssgbd.com/</string>-->
 
-    <string name="base_url">https://testforce.ssgbd.com/</string>
+<!--    <string name="base_url">https://testforce.ssgbd.com/</string>-->
 
-<!--<string name="base_url">https://ssforcenewdev.ssgbd.com/</string>-->
+<string name="base_url">https://ssforcenewdev.ssgbd.com/</string>
 <!--<string name="base_url">https://trainingforce.ssgbd.com/</string>-->
 
     <!-- HRIS api -->

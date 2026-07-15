@@ -177,22 +177,33 @@ public class StockListFragment extends Fragment implements View.OnClickListener{
         wdialog.show();
     }
 
-    private void showProductListDialog() {
+//    private void showProductListDialog() {
+//
+//        LinearLayoutManager linearLayoutManager  = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+//
+//        product_list_recyclerView.setLayoutManager(linearLayoutManager);
+//        stockListAdapter = new StockListAdapter( stockDTOS,getActivity());
+//        product_list_recyclerView.setAdapter(stockListAdapter);
+//
+//        product_list_recyclerView.addOnItemTouchListener(new RecyclerClickListener(getActivity(), new RecyclerClickListener.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(View view, int position) {
+//
+//            }
+//        }));
+//
+//    }
+private void showProductListDialog() {
 
-        LinearLayoutManager linearLayoutManager  = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+    LinearLayoutManager linearLayoutManager =
+            new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
 
-        product_list_recyclerView.setLayoutManager(linearLayoutManager);
-        stockListAdapter = new StockListAdapter( stockDTOS,getActivity());
-        product_list_recyclerView.setAdapter(stockListAdapter);
+    product_list_recyclerView.setLayoutManager(linearLayoutManager);
 
-        product_list_recyclerView.addOnItemTouchListener(new RecyclerClickListener(getActivity(), new RecyclerClickListener.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
+    stockListAdapter = new StockListAdapter(stockDTOS, getActivity());
 
-            }
-        }));
-
-    }
+    product_list_recyclerView.setAdapter(stockListAdapter);
+}
 
     @Override
     public void onDestroy() {
@@ -218,6 +229,14 @@ public class StockListFragment extends Fragment implements View.OnClickListener{
         pd.setCancelable(false);
         pd.show();
         stockDTOS.clear();
+        String url = jp.stockList(
+                SharePreference.getUserId(getActivity()),
+                catId,
+                SharePreference.getUserPointId(getActivity())
+        );
+
+        Log.e("REQUEST_URL", url);
+
         vm.sendRequestToServer2(getActivity(), getString(R.string.base_url)+"api/stock-list", jp.stockList(SharePreference.getUserId(getActivity()),catId,SharePreference.getUserPointId(getActivity())), new VolleyCallBack() {
             @Override
             public void onSuccess(String result) {
@@ -236,9 +255,14 @@ public class StockListFragment extends Fragment implements View.OnClickListener{
                         for (int i = 0; i < statusArray.length(); i++) {
                             JSONObject routeObject = statusArray.getJSONObject(i);
                             StockListDTO stockListDTO = new StockListDTO();
+                            stockListDTO.setProductid(
+                                    routeObject.getString("product_id")
+                            );
                             stockListDTO.setProductName(routeObject.getString("product_name"));
                             stockListDTO.setStockQty(routeObject.getString("stock_qty"));
                             stockListDTO.setStockValue(routeObject.getString("stock_value"));
+                            //stockDemand
+                            stockListDTO.setStockDemand (routeObject.getString("stock_demand"));
 
                             stockDTOS.add(stockListDTO);
                         }

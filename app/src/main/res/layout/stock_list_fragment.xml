@@ -96,15 +96,26 @@
             android:textStyle="bold"
 
             android:text="Value" />
+        <TextView
+            android:id="@+id/row_product_demand_qty"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:text="Demand Qty" />
+
+
 
 
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/product_list_recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin_10dp"
-        android:layout_marginRight="@dimen/margin_10dp" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:nestedScrollingEnabled="false"/>
 
 
 </LinearLayout>
