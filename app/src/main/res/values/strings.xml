@@ -45,8 +45,8 @@
 
     <!-- HRIS api -->
 <!--<string name="base_url_hris">http://api.hrisdev.ssgbd.com/</string>-->
-    <string name="base_url_hris">https://hrisdevv2.ssgbd.com/backend/public/api/</string>
-<!--    <string name="base_url_hris">https://hris.ssgbd.com/backend/public/api/</string>-->
+<!--    <string name="base_url_hris">https://hrisdevv2.ssgbd.com/backend/public/api/</string>-->
+    <string name="base_url_hris">https://hris.ssgbd.com/backend/public/api/</string>
 
     <string name="sync_product_url">api/apps/sync-products</string>
     <string name="sync_product_category_url">api/apps/sync-categories</string>
