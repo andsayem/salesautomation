@@ -47,13 +47,13 @@
             android:textSize="22sp" />
 
         <TextView
+            android:id="@+id/txtInfo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_weight="1"
-            android:text="প্রতি প্রোডাক্টের জন্য মাসে মাত্র একবার স্টক ডিমান্ড করা যাবে। অনুগ্রহ করে সঠিক পরিমাণ উল্লেখ করুন।"
             android:textColor="#5D4037"
-            android:textSize="13sp" />
+            android:textSize="13sp"/>
 
     </LinearLayout>
 

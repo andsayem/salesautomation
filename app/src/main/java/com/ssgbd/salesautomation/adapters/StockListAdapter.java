@@ -27,8 +27,11 @@ import com.ssgbd.salesautomation.utils.VolleySingleton;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 import android.app.Dialog;
@@ -146,6 +149,10 @@ public class StockListAdapter extends RecyclerView.Adapter<StockListAdapter.NewR
                         dialog.findViewById(R.id.txtCurrentStock);
 
 
+                TextView txtInfo =
+                        dialog.findViewById(R.id.txtInfo);
+
+
                 EditText edtQty =
                         dialog.findViewById(R.id.edtDemandQty);
 
@@ -181,6 +188,9 @@ public class StockListAdapter extends RecyclerView.Adapter<StockListAdapter.NewR
                         "Stock QTY : "
                                 + itemFeed.getStockQty()
                 );
+
+
+                txtInfo.setText(getStockDemandMessage());
 
 
 
@@ -392,7 +402,28 @@ public class StockListAdapter extends RecyclerView.Adapter<StockListAdapter.NewR
     }
 
 
+    private String getStockDemandMessage() {
 
+        Calendar today = Calendar.getInstance();
+
+        int currentDay = today.get(Calendar.DAY_OF_MONTH);
+        int lastDay = today.getActualMaximum(Calendar.DAY_OF_MONTH);
+
+        int remainingDays = (lastDay - currentDay) + 1;
+
+        SimpleDateFormat sdf =
+                new SimpleDateFormat("dd MMMM yyyy", Locale.getDefault());
+
+        Calendar lastDate = (Calendar) today.clone();
+        lastDate.set(Calendar.DAY_OF_MONTH, lastDay);
+
+        return "নোট: প্রতি প্রোডাক্টের জন্য মাসে মাত্র একবার স্টক ডিমান্ড করা যাবে। "
+                + "আপনি যে স্টক ডিমান্ড প্রদান করবেন, তা বর্তমান তারিখ থেকে চলতি মাসের শেষ দিন ("
+                + sdf.format(lastDate.getTime())
+                + ") পর্যন্ত, অর্থাৎ বাকি "
+                + remainingDays
+                + " দিনের চাহিদার জন্য বিবেচিত হবে। তাই অনুগ্রহ করে প্রয়োজন অনুযায়ী সঠিক পরিমাণ উল্লেখ করুন।";
+    }
 
 
 
