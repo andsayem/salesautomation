@@ -80,13 +80,13 @@ import java.util.Locale;
 
 public class NewRetailerActivity extends AppCompatActivity implements View.OnClickListener{
 
-   Context context;
-   Toolbar mToolbar;
-   TextView txt_toolbar;
+    Context context;
+    Toolbar mToolbar;
+    TextView txt_toolbar;
 
     Spinner spinnerOfferType;
     ArrayList<CategoryDTO> categoryDTOS = new ArrayList<>();
-//    private static String DB_PATH = "/data/data/com.ssgbd.salesautomation/databases/";
+    //    private static String DB_PATH = "/data/data/com.ssgbd.salesautomation/databases/";
     private static String DB_PATH = Utility.DB_PATH;
     private static String DB_NAME = "ssg.db";
     DatabaseHelper databaseHelper;
@@ -119,7 +119,7 @@ public class NewRetailerActivity extends AppCompatActivity implements View.OnCli
 
         loadToolBar();
         initUi();
-      //  Log.e("<<>>",getIntent().getStringExtra("retailer_serial")+"<>");
+        //  Log.e("<<>>",getIntent().getStringExtra("retailer_serial")+"<>");
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(context,
@@ -127,11 +127,11 @@ public class NewRetailerActivity extends AppCompatActivity implements View.OnCli
                     == PackageManager.PERMISSION_GRANTED) {
                 getLatLon();
             }
-            } else {
-                //Request Location Permission
-                checkLocationPermission();
-                //  Log.e("permission 2222","<<<>>>>"+"111111");
-            }
+        } else {
+            //Request Location Permission
+            checkLocationPermission();
+            //  Log.e("permission 2222","<<<>>>>"+"111111");
+        }
 
 
     }
@@ -197,6 +197,11 @@ public class NewRetailerActivity extends AppCompatActivity implements View.OnCli
         if (file.exists() && !file.isDirectory()){
             databaseHelper.openDataBase();}
 
+        CategoryDTO placeholder = new CategoryDTO();
+        placeholder.setId("");
+        placeholder.setName("-Select Shop Type-");
+        categoryDTOS.add(placeholder);
+
         CategoryDTO c1 = new CategoryDTO();
         c1.setId("2");
         c1.setName(" Electric Shop");
@@ -226,7 +231,12 @@ public class NewRetailerActivity extends AppCompatActivity implements View.OnCli
         c.setName("END SHOP");
         categoryDTOS.add(c);
 
-                spinnerOfferType = (Spinner) findViewById(R.id.spinnerOfferType);
+        CategoryDTO c8 = new CategoryDTO();
+        c8.setId("8");
+        c8.setName("Building visit");
+        categoryDTOS.add(c8);
+
+        spinnerOfferType = (Spinner) findViewById(R.id.spinnerOfferType);
         CustomArrayAdapter adapter = new CustomArrayAdapter(context,
                 R.layout.customspinneritem, categoryDTOS);
 
@@ -236,9 +246,9 @@ public class NewRetailerActivity extends AppCompatActivity implements View.OnCli
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 String item = ((TextView)view.findViewById(R.id.offer_type_txt)).getText().toString();
 
-              //  Log.e(">>>><<>>",categoryDTOS.get(pos).getId()+"<<>>"+categoryDTOS.get(pos).getName()+"");
+                //  Log.e(">>>><<>>",categoryDTOS.get(pos).getId()+"<<>>"+categoryDTOS.get(pos).getName()+"");
                 shopType = categoryDTOS.get(pos).getId();
-             //   Log.e(">>>shoptype><<>>",shopType+"");
+                //   Log.e(">>>shoptype><<>>",shopType+"");
             }
 
             public void onNothingSelected(AdapterView<?> parent) {
@@ -299,7 +309,7 @@ public class NewRetailerActivity extends AppCompatActivity implements View.OnCli
         linlay_route.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             //   showRouteListDialog();
+                //   showRouteListDialog();
             }
         });
 
@@ -326,8 +336,12 @@ public class NewRetailerActivity extends AppCompatActivity implements View.OnCli
                 else if(edt_txt_mobile.getText().length()==0){
                     Toast.makeText(context, "Please Enter a valid Phone Number", Toast.LENGTH_SHORT).show();
 
+                }
+                else if(shopType.length()==0){
+                    Toast.makeText(context, "Please Select Shop Type", Toast.LENGTH_SHORT).show();
+
                 }else {
-                //Log.e("<<>>",getIntent().getStringExtra("retailer_serial")+"");
+                    //Log.e("<<>>",getIntent().getStringExtra("retailer_serial")+"");
                     try {
                         finalobject = new JSONObject();
                         retailerobject = new JSONObject();
@@ -353,7 +367,7 @@ public class NewRetailerActivity extends AppCompatActivity implements View.OnCli
 
                         finalobject.put("retailer_info", retailerobject);
 
-                      //  Log.e("<<>>", finalobject + "");
+                        //  Log.e("<<>>", finalobject + "");
 
                         sendRequest();
                     } catch (JSONException e) {
@@ -463,7 +477,7 @@ public class NewRetailerActivity extends AppCompatActivity implements View.OnCli
                 try {
                     JSONObject jsonObject1 = new JSONObject(result);
 
-                   // Log.e("<<>>",jsonObject1.getString("message")+"");
+                    // Log.e("<<>>",jsonObject1.getString("message")+"");
 
                     String s = jsonObject1.getString("message");
 
@@ -586,7 +600,7 @@ public class NewRetailerActivity extends AppCompatActivity implements View.OnCli
         int id = item.getItemId();
 
         if (id==android.R.id.home){
-           finish();
+            finish();
 
             return true;
         }
@@ -631,6 +645,3 @@ public class NewRetailerActivity extends AppCompatActivity implements View.OnCli
         alertBulder.show();
     }
 }
-
-
-
